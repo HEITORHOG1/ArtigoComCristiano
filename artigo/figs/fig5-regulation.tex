@@ -1,0 +1,71 @@
+% =============================================================================
+% Figure 5 -- Regulatory cascade and SMS components
+% =============================================================================
+\begin{tikzpicture}[
+  every node/.style={font=\small, align=center},
+  head/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=12cm, minimum height=0.8cm
+  },
+  pillar/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=2.6cm, minimum height=0.8cm
+  },
+  item/.style={
+    rectangle, rounded corners=2pt,
+    draw=kpGreen, fill=kpGreenL, thick,
+    minimum width=2.6cm, minimum height=0.6cm,
+    font=\footnotesize
+  },
+  arrow/.style={-{Stealth[length=2mm]}, thick}
+]
+ % Cascade
+ \node[head] (icao) at (0,7.0)
+  {International Civil Aviation Organisation (ICAO) Regulation};
+ \node[head] (caa) at (0,6.0)
+  {Civil Aviation Authorities (FAA, EASA, ANAC, others)};
+ \node[head] (sms) at (0,5.0)
+  {Airlines / Airports / Maintenance Facilities SMS Manual};
+
+ \draw[arrow] (icao) -- (caa);
+ \draw[arrow] (caa) -- (sms);
+
+ % Four SMS pillars
+ \node[pillar] (p1) at (-4.5,3.6) {Safety Policy\\\& Procedures};
+ \node[pillar] (p2) at (-1.5,3.6) {Safety Risk\\Management};
+ \node[pillar] (p3) at (1.5,3.6) {Safety\\Assurance};
+ \node[pillar] (p4) at (4.5,3.6) {Safety\\Promotion};
+
+ \draw[arrow] (sms) -- (p1);
+ \draw[arrow] (sms) -- (p2);
+ \draw[arrow] (sms) -- (p3);
+ \draw[arrow] (sms) -- (p4);
+
+ % Items under each pillar
+ \foreach \i/\text in {0/Safety Policy, 1/Safety Manual,
+             2/Safety Procedures, 3/Safety Instructions} {
+  \node[item] at (-4.5, 2.4 - \i*0.8) {\text};
+ }
+ \foreach \i/\text in {0/Hazard ID, 1/Risk Assessment,
+             2/Risk Owner, 3/Risk Control} {
+  \node[item] at (-1.5, 2.4 - \i*0.8) {\text};
+ }
+ \foreach \i/\text in {0/Performance Mon., 1/Safety Audit,
+             2/Change Mgmt, 3/Continuous Impr.} {
+  \node[item] at (1.5, 2.4 - \i*0.8) {\text};
+ }
+ \foreach \i/\text in {0/Training: specialists,
+             1/Training: leadership,
+             2/Training: all staff,
+             3/Communication plan} {
+  \node[item] at (4.5, 2.4 - \i*0.8) {\text};
+ }
+
+ % Vertical connectors (column lines)
+ \draw[gray, thin] (-4.5,3.2) -- (-4.5,-1.2);
+ \draw[gray, thin] (-1.5,3.2) -- (-1.5,-1.2);
+ \draw[gray, thin] (1.5,3.2) -- (1.5,-1.2);
+ \draw[gray, thin] (4.5,3.2) -- (4.5,-1.2);
+\end{tikzpicture}

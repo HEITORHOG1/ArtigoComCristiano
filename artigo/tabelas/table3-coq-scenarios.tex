@@ -1,0 +1,34 @@
+% =============================================================================
+% TABLE 3 -- Cost-of-quality scenarios (Reviewer feedback: plug numbers)
+% =============================================================================
+\begin{table*}[!htbp]
+  \centering
+  \caption{Cost-of-quality scenarios for the Kirkpatrick-based intervention.
+           Pessimistic and optimistic bounds apply $\pm25\%$ to the base
+           reductions and double the prevention/appraisal cost in the
+           pessimistic case.}
+  \label{tab:coq-scenarios}
+  \small
+  \begin{tabular}{@{}p{6.5cm}rrr@{}}
+    \toprule
+    \textbf{Component (USD per year)} & \textbf{Pessimistic} & \textbf{Base} & \textbf{Optimistic} \\
+    \midrule
+    Internal failure savings ($\Delta C_{\text{IF}}$)        & 621{,}000   & 828{,}000   & 1{,}035{,}000 \\
+    External failure savings ($\Delta C_{\text{EF}}$)        & 352{,}000   & 470{,}000   & 588{,}000 \\
+    Prevention and appraisal cost ($C_{\text{P\&A}}$)        & $-$220{,}000 & $-$110{,}000 & $-$80{,}000 \\
+    \midrule
+    \textbf{Net annual saving} ($\Delta C_{\text{net}}$)     & \textbf{753{,}000} & \textbf{1{,}188{,}000} & \textbf{1{,}543{,}000} \\
+    \midrule
+    Implied simple payback (months)                          & 3.5         & 1.1         & 0.6 \\
+    \bottomrule
+  \end{tabular}\\[2pt]
+  \footnotesize
+  \emph{Notes.} Internal-failure savings are computed from
+  Eq.~\eqref{eq:internal} with $L_h \approx 4{,}800$\,h, $R \approx
+  85$\,USD/h, $S_c \approx 12$ components and $\bar{P}_c \approx
+  35{,}000$\,USD; external-failure savings from
+  Eq.~\eqref{eq:external}. Pessimistic and optimistic columns apply
+  $\pm 25\%$ to the base reductions, with the pessimistic scenario also
+  doubling $C_{\text{P\&A}}$ to acknowledge management time that may be
+  underestimated.
+\end{table*}

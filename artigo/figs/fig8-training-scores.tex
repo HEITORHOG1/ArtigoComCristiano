@@ -1,0 +1,57 @@
+% =============================================================================
+% Figure 8 -- Sample reaction scores (Level 1) across 10 sessions, 7 criteria
+% Values reconstructed from aggregated facility reports.
+% =============================================================================
+\begin{tikzpicture}
+\begin{axis}[
+    ybar=1pt,
+    width=\linewidth, height=6cm,
+    bar width=4pt,
+    ymin=0, ymax=10,
+    ylabel={Score (0--10)},
+    symbolic x coords={T1,T2,T3,T4,T5,T6,T7,T8,T9,T10},
+    xtick=data,
+    xticklabel style={font=\footnotesize},
+    yticklabel style={font=\footnotesize},
+    legend pos=south east,
+    legend style={
+        font=\tiny,
+        legend columns=4,
+        draw=none,
+        fill=white,
+        fill opacity=0.85,
+        /tikz/every even column/.append style={column sep=4pt}
+    },
+    enlarge x limits=0.06,
+    grid=major,
+    grid style={very thin, gray!20},
+    axis y line*=left,
+    axis x line*=bottom
+]
+  % 7 criteria across 10 sessions (reconstructed aggregates)
+  \addplot+[fill=kpBlue,    draw=kpBlue]    coordinates {
+    (T1,9.8) (T2,9.7) (T3,9.5) (T4,9.6) (T5,9.0)
+    (T6,9.1) (T7,9.6) (T8,9.6) (T9,9.4) (T10,9.7)};
+  \addplot+[fill=kpGreen,   draw=kpGreen]   coordinates {
+    (T1,9.6) (T2,9.7) (T3,9.4) (T4,9.5) (T5,9.0)
+    (T6,8.9) (T7,9.5) (T8,9.4) (T9,9.4) (T10,9.7)};
+  \addplot+[fill=kpOrange,  draw=kpOrange]  coordinates {
+    (T1,9.7) (T2,9.6) (T3,9.5) (T4,9.5) (T5,9.0)
+    (T6,8.8) (T7,9.6) (T8,9.5) (T9,9.4) (T10,9.6)};
+  \addplot+[fill=kpRed,     draw=kpRed]     coordinates {
+    (T1,9.8) (T2,9.5) (T3,9.4) (T4,9.5) (T5,7.8)
+    (T6,9.0) (T7,9.5) (T8,9.4) (T9,9.3) (T10,9.6)};
+  \addplot+[fill=cyan!70,   draw=cyan!70]   coordinates {
+    (T1,9.7) (T2,9.7) (T3,9.5) (T4,9.5) (T5,9.2)
+    (T6,9.0) (T7,9.5) (T8,9.5) (T9,9.4) (T10,9.7)};
+  \addplot+[fill=magenta!70,draw=magenta!70]coordinates {
+    (T1,9.6) (T2,9.7) (T3,9.4) (T4,9.6) (T5,9.1)
+    (T6,5.2) (T7,9.6) (T8,9.5) (T9,4.0) (T10,9.6)};
+  \addplot+[fill=yellow!70, draw=yellow!80!black] coordinates {
+    (T1,9.7) (T2,9.6) (T3,9.5) (T4,9.6) (T5,9.0)
+    (T6,9.0) (T7,9.5) (T8,9.4) (T9,9.4) (T10,9.7)};
+
+  \legend{Learning, Satisfaction, Content, Punctuality,
+          Communication, Mastery, Infrastructure}
+\end{axis}
+\end{tikzpicture}

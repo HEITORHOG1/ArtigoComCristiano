@@ -1,0 +1,66 @@
+% =============================================================================
+% Figure 0 -- Conceptual model (Reviewer comment #8)
+% Kirkpatrick levels mapped to AS9100 clauses, SMS pillars, and Sustainability
+% =============================================================================
+\begin{tikzpicture}[
+  every node/.style={font=\small, align=center, inner sep=5pt},
+  levelbox/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=2.6cm, minimum height=1.2cm
+  },
+  domainbox/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpGreen, fill=kpGreenL, thick,
+    minimum width=3.8cm, minimum height=1.2cm
+  },
+  sustbox/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpOrange, fill=kpOrangeL, thick,
+    minimum width=3.8cm, minimum height=1.2cm
+  },
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, gray},
+  header/.style={font=\bfseries\small}
+]
+ % Row positions (1.7cm vertical spacing between rows for breathing room)
+ % Header row at y = 6.4
+ % L1 at y = 5.1; L2 at y = 3.4; L3 at y = 1.7; L4 at y = 0.0
+
+ % Headers
+ \node[header] at (0.0,6.4) {Kirkpatrick};
+ \node[header] at (4.2,6.4) {AS9100 / SMS};
+ \node[header] at (9.0,6.4) {Sustainability};
+
+ % Level 1
+ \node[levelbox] (l1) at (0.0,5.1) {\textbf{L1}\\Reaction};
+ \node[domainbox] (a1) at (4.2,5.1) {7.3 Awareness\\7.4 Communication};
+ \node[sustbox] (s1) at (9.0,5.1) {Engagement\\(human capital)};
+ \draw[arrow] (l1) -- (a1);
+ \draw[arrow] (a1) -- (s1);
+
+ % Level 2
+ \node[levelbox] (l2) at (0.0,3.4) {\textbf{L2}\\Learning};
+ \node[domainbox] (a2) at (4.2,3.4) {7.2 Competence\\(verified knowledge)};
+ \node[sustbox] (s2) at (9.0,3.4) {Avoided internal\\failure (scrap)};
+ \draw[arrow] (l2) -- (a2);
+ \draw[arrow] (a2) -- (s2);
+
+ % Level 3
+ \node[levelbox] (l3) at (0.0,1.7) {\textbf{L3}\\Behaviour};
+ \node[domainbox] (a3) at (4.2,1.7) {SMS Safety\\Assurance};
+ \node[sustbox] (s3) at (9.0,1.7) {Avoided rework\\(energy, labour)};
+ \draw[arrow] (l3) -- (a3);
+ \draw[arrow] (a3) -- (s3);
+
+ % Level 4
+ \node[levelbox] (l4) at (0.0,0.0) {\textbf{L4}\\Results};
+ \node[domainbox] (a4) at (4.2,0.0) {Clause 9\\Performance evaluation};
+ \node[sustbox] (s4) at (9.0,0.0) {Avoided external failure\\(warranty, CO\textsubscript{2})};
+ \draw[arrow] (l4) -- (a4);
+ \draw[arrow] (a4) -- (s4);
+
+ % Vertical arrows (Kirkpatrick progression)
+ \draw[arrow, dashed] (l1) -- (l2);
+ \draw[arrow, dashed] (l2) -- (l3);
+ \draw[arrow, dashed] (l3) -- (l4);
+\end{tikzpicture}

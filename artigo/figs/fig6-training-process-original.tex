@@ -1,0 +1,49 @@
+% =============================================================================
+% Figure 6 -- Original training process (before intervention)
+% Layout: 3 rows of 5 boxes (snake pattern)
+% =============================================================================
+\begin{tikzpicture}[
+  every node/.style={font=\footnotesize, align=center},
+  start/.style={
+    ellipse, draw=kpGreen, fill=kpGreenL, thick,
+    minimum width=1.0cm, minimum height=0.6cm
+  },
+  procstep/.style={
+    rectangle, rounded corners=2pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=2.1cm, minimum height=0.85cm
+  },
+  arrow/.style={-{Stealth[length=1.5mm]}, thick}
+]
+ % Row 1 (left to right) -- 5 elements
+ \node[start]             (s) at ( 0.0, 3.4) {Start};
+ \node[procstep, right=0.25cm of s]  (a1) {Identify\\Training Needs};
+ \node[procstep, right=0.25cm of a1]  (a2) {Prepare Annual\\Training Plan};
+ \node[procstep, right=0.25cm of a2]  (a3) {Verify availability\\of instructors};
+ \node[procstep, right=0.25cm of a3]  (a4) {Create training\\class in LMS};
+
+ \draw[arrow] (s) -- (a1); \draw[arrow] (a1) -- (a2);
+ \draw[arrow] (a2) -- (a3); \draw[arrow] (a3) -- (a4);
+
+ % Row 2 (right to left) -- 5 elements
+ \node[procstep]            (b1) at (12.0, 1.7) {Register\\closure in LMS};
+ \node[procstep, left=0.25cm of b1]  (b2) {Receive records\\from instructors};
+ \node[procstep, left=0.25cm of b2]  (b3) {Prepare training\\kit};
+ \node[procstep, left=0.25cm of b3]  (b4) {Prepare\\Resources};
+ \node[procstep, left=0.25cm of b4]  (b5) {Register\\employee};
+
+ \draw[arrow] (a4) -- ++(0,-0.7) -| (b5);
+ \draw[arrow] (b5) -- (b4); \draw[arrow] (b4) -- (b3);
+ \draw[arrow] (b3) -- (b2); \draw[arrow] (b2) -- (b1);
+
+ % Row 3 (left to right) -- 5 elements ending with End
+ \node[procstep]            (c1) at ( 0.0, 0.0) {Load data\\into LMS};
+ \node[procstep, right=0.25cm of c1]  (c2) {Grant ERP\\access};
+ \node[procstep, right=0.25cm of c2]  (c3) {Payment of\\Instructor};
+ \node[procstep, right=0.25cm of c3]  (c4) {Archive\\training records};
+ \node[start, right=0.25cm of c4]   (e) {End};
+
+ \draw[arrow] (b1) -- ++(0,-0.7) -| (c1);
+ \draw[arrow] (c1) -- (c2); \draw[arrow] (c2) -- (c3);
+ \draw[arrow] (c3) -- (c4); \draw[arrow] (c4) -- (e);
+\end{tikzpicture}

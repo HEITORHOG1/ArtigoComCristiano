@@ -1,0 +1,251 @@
+%% =============================================================================
+%% main.tex
+%% A Kirkpatrick-based Framework for Integrating Safety and Sustainability in
+%% Aviation Maintenance: A Case Study on Waste Reduction and Resource Efficiency
+%%
+%% Target journal: Journal of Air Transport Management (Elsevier)
+%% Template: Elsevier CAS (cas-dc, double column)
+%% =============================================================================
+
+\documentclass[a4paper,fleqn,oneside]{cas-dc}
+
+% Tipografia ----------------------------------------------------------------
+% Estratégia: lmodern para texto (ligaduras fi/ff/fl em todos os tamanhos);
+% cas-dc.cls continua provendo STIX para math via seu próprio setup.
+% A combinação reescreve os defaults de família de texto sem tocar no math.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\renewcommand{\rmdefault}{lmr}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[expansion=false]{microtype}
+
+% Bibliografia ---------------------------------------------------------------
+\usepackage[authoryear,longnamesfirst]{natbib}
+
+% Float placement -- figuras e tabelas movidas manualmente para o final do
+% documento (depois da bibliografia). Cada float usa [!tbp] como placement
+% para evitar páginas brancas intermediárias.
+
+% Gráficos e diagramas ------------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{
+  positioning,
+  arrows.meta,
+  shapes.geometric,
+  shapes.misc,
+  calc,
+  fit,
+  backgrounds,
+  patterns
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+
+% Tabelas adicionais --------------------------------------------------------
+\usepackage{tabularx}
+\usepackage{array}
+
+% Lista customizável (leftmargin etc.) -------------------------------------
+\usepackage{enumitem}
+
+% Cores (paleta acessível, Elsevier-friendly) -------------------------------
+\definecolor{kpBlue}{HTML}{2171B5}
+\definecolor{kpBlueL}{HTML}{C6DBEF}
+\definecolor{kpGreen}{HTML}{2C9F2C}
+\definecolor{kpGreenL}{HTML}{CDEFCD}
+\definecolor{kpOrange}{HTML}{E69138}
+\definecolor{kpOrangeL}{HTML}{FCE5CD}
+\definecolor{kpRed}{HTML}{CC0000}
+\definecolor{kpRedL}{HTML}{F4CCCC}
+
+% Hyperref ------------------------------------------------------------------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=kpBlue,
+  citecolor=kpBlue,
+  urlcolor=kpBlue
+}
+
+% Macros úteis (acronyms as plain text macros) ------------------------------
+\usepackage{xspace}
+\newcommand{\AS}{AS9100\xspace}
+\newcommand{\ICAO}{ICAO\xspace}
+\newcommand{\FAA}{FAA\xspace}
+\newcommand{\EASA}{EASA\xspace}
+\newcommand{\ANAC}{ANAC\xspace}
+\newcommand{\IATA}{IATA\xspace}
+\newcommand{\SAE}{SAE\xspace}
+\newcommand{\SMS}{SMS\xspace}
+\newcommand{\MRO}{MRO\xspace}
+\newcommand{\ERP}{ERP\xspace}
+\newcommand{\LMS}{LMS\xspace}
+\newcommand{\CAR}{CAR\xspace}
+\newcommand{\CAA}{CAA\xspace}
+\newcommand{\ROI}{ROI\xspace}
+\newcommand{\NPV}{NPV\xspace}
+\newcommand{\ESG}{ESG\xspace}
+\newcommand{\CoQ}{CoQ\xspace}
+
+\begin{document}
+
+% =============================================================================
+% FRONTMATTER
+% =============================================================================
+
+\title[mode=title]{A Kirkpatrick-based Framework for Integrating Safety and Sustainability in Aviation Maintenance: A Case Study on Waste Reduction and Resource Efficiency}
+
+\shorttitle{Kirkpatrick framework for safety \& sustainability in MRO}
+\shortauthors{Pereira and Gon\c{c}alves}
+
+% Autores -------------------------------------------------------------------
+\author[1,2]{Jos\'e Cristiano Pereira}[
+  prefix=Dr.,
+  role=Researcher,
+  orcid=0000-0002-2329-0560
+]
+\cormark[1]
+\ead{josecristiano.pereira@ucp.br}
+\credit{Conceptualization, Methodology, Investigation, Formal analysis,
+        Writing -- original draft, Supervision, Funding acquisition,
+        Project administration}
+
+\author[1]{Heitor Oliveira Gon\c{c}alves}[
+  orcid=0000-0002-5866-2213
+]
+\ead{heitorhog@gmail.com}
+\credit{Data curation, Visualization, Validation,
+        Writing -- review \& editing}
+
+% Afiliações ----------------------------------------------------------------
+\affiliation[1]{
+  organization={Departamento de Engenharia e Computa\c{c}\~ao,
+                Universidade Cat\'olica de Petr\'opolis (UCP)},
+  city={Petr\'opolis},
+  state={RJ},
+  country={Brazil}
+}
+
+\affiliation[2]{
+  organization={GE Aviation},
+  country={Brazil}
+}
+
+\cortext[1]{Corresponding author.}
+
+% =============================================================================
+% ABSTRACT (rewritten per Reviewer comment #7: economic outcomes upfront)
+% =============================================================================
+\begin{abstract}
+Within high-risk industries such as aviation maintenance, safety and
+sustainability are intrinsically linked: maintenance errors not only drive
+accidents but also generate substantial resource waste through rework, scrap
+and the loss of human capital. This case study operationalises the Kirkpatrick
+four-level model (Reaction, Learning, Behaviour, Results) over a twelve-month
+intervention at a multinational aircraft-engine \MRO{} facility and quantifies
+both safety and sustainability outcomes. Mixed-methods data collection combined
+post-training questionnaires, on-the-job observations, quality records,
+warranty and concession costs, customer satisfaction surveys and turnaround
+time metrics. After implementation, the training-failure rate was 28\% lower and the
+regulatory non-conformance rate 35\% lower than baseline (95\% CIs in
+Section~4), with estimated annual quality-cost savings in the range of
+USD~0.75--1.5~M (base case USD~1.19~M) and a payback period under twelve
+months across pessimistic-to-optimistic scenarios. The single-site
+case-study design supports association rather than causal attribution;
+the results are interpreted accordingly. The intervention also prevented
+the material and energy waste associated with corrective actions.
+Customer satisfaction surveys with four major airline customers reported
+improvements across all five evaluated categories, with mean ratings
+consistently in the upper range of the five-point scale during the
+intervention year. We provide a
+replicable framework for \MRO{} managers and regulators, mapping each
+Kirkpatrick level onto specific \AS{} clauses, \SMS{} pillars and
+sustainability indicators. The study supports policy recommendations for
+integrating training-effectiveness metrics into \SMS{} requirements mandated
+by \ICAO{} Annex 19, demonstrating that systematic training evaluation can
+transform technical instruction from a compliance obligation into a strategic
+lever for cleaner production in resource-intensive aviation operations.
+\end{abstract}
+
+% =============================================================================
+% HIGHLIGHTS (Reviewer comment #4 alignment + JATM requirement)
+% =============================================================================
+\begin{highlights}
+\item Kirkpatrick model applied to aviation MRO over a 12-month case study.
+\item Training failures decreased 28\%; regulatory non-conformances dropped 35\%.
+\item Payback of under twelve months in estimated cost-of-quality savings.
+\item Framework maps Kirkpatrick levels to AS9100, SMS pillars and ESG indicators.
+\item Policy guidance proposed for ICAO, FAA, EASA and ANAC oversight regimes.
+\end{highlights}
+
+% =============================================================================
+% KEYWORDS
+% =============================================================================
+\begin{keywords}
+Kirkpatrick model \sep Aviation maintenance training \sep MRO economics \sep
+Aviation human factors \sep Safety Management Systems \sep AS9100 \sep
+Sustainability \sep Cost of quality
+\end{keywords}
+
+\maketitle
+
+% =============================================================================
+% BODY
+% =============================================================================
+\input{secoes/01-introduction}
+\input{secoes/02-literature-review}
+\input{secoes/03-methodology}
+\input{secoes/04-results}
+\input{secoes/05-discussion}
+\input{secoes/06-managerial-implications}
+\input{secoes/07-policy-recommendations}
+\input{secoes/08-conclusion}
+
+% =============================================================================
+% BACKMATTER
+% =============================================================================
+
+\section*{Funding}
+This research received no specific grant from any funding agency in the
+public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+During the preparation of this work the authors did not use any generative
+artificial intelligence or AI-assisted technologies to generate scientific
+content, analyse data, draw conclusions, or replace authorial judgement.
+The authors take full responsibility for the content of this publication.
+
+\section*{Ethics statement}
+The study protocol was approved by the [Institution Ethics Committee] under
+protocol No.~[X]. All participants provided informed consent to the use of
+their training records and behavioural observations for research purposes.
+The host \MRO{} facility approved the use of aggregated operational data
+through a formal data-sharing agreement that restricts the disclosure of
+individual-level records.
+
+\section*{Declaration of competing interest}
+The corresponding author, Dr.\ Jos\'e Cristiano Pereira, is affiliated
+with GE Aviation in addition to his academic position at Universidade
+Cat\'olica de Petr\'opolis.
+The host \MRO{} facility analysed in this case study is part of the GE
+Aviation maintenance network. The data presented in this study were collected
+under a formal data-sharing agreement with the facility's quality
+department, and the analysis and conclusions reflect the authors'
+independent academic assessment. GE Aviation reviewed the manuscript
+for confidentiality compliance only and did not influence the analytical
+conclusions or the policy recommendations. The authors otherwise declare
+no competing financial interests or personal relationships that could
+have appeared to influence the work reported in this paper.
+
+\section*{Data availability}
+The aggregated operational metrics that support the findings of this study
+are reported within the article. Individual-level data are not publicly
+available due to commercial confidentiality of the \MRO{} facility.
+
+\printcredits
+
+\bibliographystyle{cas-model2-names}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,83 @@
+% =============================================================================
+% Graphical Abstract (Elsevier specifications)
+%
+% TARGET: One image, sized 1200 x 800 px (Elsevier "minimum 531 x 1328 px"),
+%         300 dpi PNG/JPG or vector PDF, narrative left-to-right.
+%
+% This standalone document compiles a print-ready PDF version of the graphical
+% abstract. The narrative is: PROBLEM -> INTERVENTION -> OUTCOME.
+% =============================================================================
+
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc,fit,backgrounds}
+
+\definecolor{kpBlue}{HTML}{2171B5}
+\definecolor{kpBlueL}{HTML}{C6DBEF}
+\definecolor{kpGreen}{HTML}{2C9F2C}
+\definecolor{kpGreenL}{HTML}{CDEFCD}
+\definecolor{kpOrange}{HTML}{E69138}
+\definecolor{kpOrangeL}{HTML}{FCE5CD}
+\definecolor{kpRed}{HTML}{CC0000}
+\definecolor{kpRedL}{HTML}{F4CCCC}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    every node/.style={font=\small\sffamily, align=center},
+    block/.style={
+        rectangle, rounded corners=4pt, thick,
+        minimum width=4.4cm, minimum height=2.4cm,
+        align=center
+    },
+    arrow/.style={-{Stealth[length=4mm]}, ultra thick, gray}
+]
+
+  % Problem block
+  \node[block, draw=kpRed, fill=kpRedL] (problem) at (0,0) {
+    \textbf{PROBLEM}\\[3pt]
+    Maintenance error in aviation MRO\\
+    drives accidents AND waste\\[3pt]
+    \footnotesize Up to USD 189K per warranty claim;\\
+    rework + scrap + energy + emissions
+  };
+
+  % Intervention block
+  \node[block, draw=kpBlue, fill=kpBlueL, right=1.6cm of problem]
+    (intervention) {
+    \textbf{INTERVENTION}\\[3pt]
+    Kirkpatrick 4-level evaluation\\
+    integrated with AS9100 \& SMS\\[3pt]
+    \footnotesize Reaction \textrightarrow{} Learning \\
+    \textrightarrow{} Behaviour \textrightarrow{} Results
+  };
+
+  % Outcome block
+  \node[block, draw=kpGreen, fill=kpGreenL, right=1.6cm of intervention]
+    (outcome) {
+    \textbf{OUTCOME}\\[3pt]
+    Safety + Sustainability gains\\[3pt]
+    \footnotesize $-28\%$ training failures \\
+    $-35\%$ non-conformances \\
+    USD 1.2\,M annual savings
+  };
+
+  % Arrows
+  \draw[arrow] (problem.east) -- (intervention.west);
+  \draw[arrow] (intervention.east) -- (outcome.west);
+
+  % Title bar
+  \node[above=0.4cm of intervention, font=\bfseries\large] (title) {
+    A Kirkpatrick-based Framework for Safety \& Sustainability in
+    Aviation MRO
+  };
+
+  % Footer
+  \node[below=0.4cm of intervention, font=\footnotesize\itshape, color=gray] {
+    12-month case study at a multinational aircraft-engine maintenance
+    facility
+  };
+
+\end{tikzpicture}
+
+\end{document}

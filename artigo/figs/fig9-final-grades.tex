@@ -1,0 +1,38 @@
+% =============================================================================
+% Figure 9 -- Final grades of 21 participants (Level 2). Pass mark = 70/100.
+% Values reconstructed from aggregated facility reports.
+% =============================================================================
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    width=\linewidth, height=6cm,
+    bar width=8pt,
+    ymin=0, ymax=100,
+    ylabel={Final grade},
+    xlabel={Participant},
+    xtick=data,
+    symbolic x coords={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21},
+    xticklabel style={font=\tiny},
+    yticklabel style={font=\footnotesize},
+    enlarge x limits=0.04,
+    grid=major,
+    grid style={very thin, gray!20},
+    axis y line*=left,
+    axis x line*=bottom
+]
+  % Reconstructed grades; three values below 70 (pass mark)
+  \addplot+[fill=kpBlue, draw=kpBlue] coordinates {
+    (1,65) (2,85) (3,92) (4,98) (5,100)
+    (6,72) (7,75) (8,68) (9,70) (10,73)
+    (11,68) (12,82) (13,69) (14,71) (15,68)
+    (16,70) (17,69) (18,75) (19,71) (20,72)
+    (21,93)
+  };
+
+  % Pass-mark line at 70
+  \draw[kpGreen, very thick, dashed]
+    (axis cs:1,70) -- (axis cs:21,70)
+    node[anchor=west, font=\footnotesize, color=kpGreen, xshift=2pt]
+    {Pass = 70};
+\end{axis}
+\end{tikzpicture}

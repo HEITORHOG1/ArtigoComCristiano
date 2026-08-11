@@ -1,0 +1,43 @@
+% =============================================================================
+% Figure 10 -- Customer satisfaction per category, pre vs post intervention
+% Pre-intervention values are retrospective estimates from non-structured
+% supervisor reports and are not directly comparable to the structured
+% post-intervention survey instrument.
+% Mean across four airline customers per category.
+% =============================================================================
+\begin{tikzpicture}
+\begin{axis}[
+    ybar=2pt,
+    width=0.92\linewidth, height=6.0cm,
+    bar width=9pt,
+    ymin=0, ymax=5.4,
+    ylabel={Mean satisfaction (0--5)},
+    ylabel style={font=\footnotesize},
+    symbolic x coords={Product, TechDocs, Turnaround, Support, Engineering},
+    xtick=data,
+    xticklabel style={font=\footnotesize, rotate=25, anchor=north east, yshift=-1pt},
+    yticklabel style={font=\footnotesize},
+    legend style={
+        font=\footnotesize,
+        draw=none,
+        legend columns=2,
+        at={(0.5,1.02)}, anchor=south,
+        column sep=8pt
+    },
+    enlarge x limits=0.14,
+    grid=major,
+    grid style={very thin, gray!20},
+    axis y line*=left,
+    axis x line*=bottom
+]
+  % Pre-intervention (retrospective estimate): light gray bars
+  \addplot+[fill=gray!35, draw=gray!60] coordinates {
+    (Product,3.6) (TechDocs,3.0) (Turnaround,3.7) (Support,3.4) (Engineering,3.3)};
+
+  % Post-intervention (structured survey): saturated blue bars
+  \addplot+[fill=kpBlue, draw=kpBlue!80!black] coordinates {
+    (Product,4.8) (TechDocs,3.8) (Turnaround,5.0) (Support,4.8) (Engineering,4.8)};
+
+  \legend{Pre-intervention (retrospective), Post-intervention (structured survey)}
+\end{axis}
+\end{tikzpicture}

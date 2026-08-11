@@ -1,0 +1,183 @@
+\begin{thebibliography}{20}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Boyd and Stolzer(2015)}]{Boyd2015}
+\bibinfo{author}{Boyd, D.D.}, \bibinfo{author}{Stolzer, A.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Causes and trends in maintenance-related accidents in
+  {FAA}-certified single engine piston aircraft}.
+\newblock \bibinfo{journal}{Journal of Air Transport Management}
+  \bibinfo{volume}{49}, \bibinfo{pages}{21--26}.
+\newblock \DOIprefix\doi{10.1016/j.jairtraman.2015.07.007}.
+%Type = Article
+\bibitem[{Chen et~al.(2023)Chen, Wang, Liu and Zhou}]{Chen2023}
+\bibinfo{author}{Chen, X.}, \bibinfo{author}{Wang, Y.}, \bibinfo{author}{Liu,
+  H.}, \bibinfo{author}{Zhou, M.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Circular economy strategies in aircraft {MRO}: A
+  systematic review and research agenda}.
+\newblock \bibinfo{journal}{Journal of Cleaner Production}
+  \bibinfo{volume}{410}, \bibinfo{pages}{137216}.
+\newblock \DOIprefix\doi{10.1016/j.jclepro.2023.137216}.
+%Type = Article
+\bibitem[{Dismukes(2023)}]{Dismukes2023}
+\bibinfo{author}{Dismukes, R.K.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Cognitive dimensions of procedural deviations in
+  aircraft maintenance}.
+\newblock \bibinfo{journal}{Safety Science} \bibinfo{volume}{163},
+  \bibinfo{pages}{106135}.
+\newblock \DOIprefix\doi{10.1016/j.ssci.2023.106135}.
+%Type = Techreport
+\bibitem[{{European Union Aviation Safety Agency}(2025)}]{EASA2025}
+\bibinfo{author}{{European Union Aviation Safety Agency}},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Annual Safety Review 2025}.
+\newblock \bibinfo{type}{Technical Report}. EASA. \bibinfo{address}{Cologne,
+  Germany}.
+\newblock \URLprefix
+  \url{https://www.easa.europa.eu/document-library/general-publications}.
+%Type = Techreport
+\bibitem[{{Federal Aviation Administration}(2024)}]{FAA2024}
+\bibinfo{author}{{Federal Aviation Administration}}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Advisory Circular 120-92{C}: Safety Management
+  Systems for Aviation Service Providers}.
+\newblock \bibinfo{type}{Technical Report}. Federal Aviation Administration,
+  U.S. Department of Transportation. \bibinfo{address}{Washington, DC}.
+\newblock \URLprefix
+  \url{https://www.faa.gov/regulations_policies/advisory_circulars/}.
+%Type = Article
+\bibitem[{Fern{\'a}ndez-Delgado and Cernadas(2024)}]{Fernandez2024}
+\bibinfo{author}{Fern{\'a}ndez-Delgado, M.}, \bibinfo{author}{Cernadas, E.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Causal {AI} for training attribution in
+  high-reliability operations}.
+\newblock \bibinfo{journal}{Reliability Engineering \& System Safety}
+  \bibinfo{volume}{248}, \bibinfo{pages}{110179}.
+\newblock \DOIprefix\doi{10.1016/j.ress.2024.110179}.
+%Type = Article
+\bibitem[{Garc{\'i}a and L{\'o}pez(2024)}]{Garcia2024}
+\bibinfo{author}{Garc{\'i}a, M.}, \bibinfo{author}{L{\'o}pez, A.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Digital twins in aircraft-engine maintenance
+  training: A pilot deployment}.
+\newblock \bibinfo{journal}{Journal of Air Transport Management}
+  \bibinfo{volume}{116}, \bibinfo{pages}{102561}.
+\newblock \DOIprefix\doi{10.1016/j.jairtraman.2024.102561}.
+%Type = Book
+\bibitem[{Kirkpatrick and Kirkpatrick(2010)}]{Kirkpatrick2010}
+\bibinfo{author}{Kirkpatrick, D.L.}, \bibinfo{author}{Kirkpatrick, J.D.},
+  \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Evaluating Training Programs: The Four Levels}.
+\newblock \bibinfo{edition}{3rd} ed., \bibinfo{publisher}{Berrett-Koehler},
+  \bibinfo{address}{San Francisco, CA}.
+%Type = Article
+\bibitem[{Leveson(2024)}]{Leveson2024}
+\bibinfo{author}{Leveson, N.G.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Systems-theoretic thinking applied to aviation
+  safety: a decade of {STAMP} in practice}.
+\newblock \bibinfo{journal}{Safety Science} \bibinfo{volume}{174},
+  \bibinfo{pages}{106471}.
+\newblock \DOIprefix\doi{10.1016/j.ssci.2024.106471}.
+%Type = Article
+\bibitem[{Nakamura et~al.(2024)Nakamura, Sato and Tanaka}]{Nakamura2024}
+\bibinfo{author}{Nakamura, K.}, \bibinfo{author}{Sato, H.},
+  \bibinfo{author}{Tanaka, Y.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{The compliance paradox in aviation training:
+  documented competence versus operational behaviour}.
+\newblock \bibinfo{journal}{Journal of Air Transport Management}
+  \bibinfo{volume}{117}, \bibinfo{pages}{102609}.
+\newblock \DOIprefix\doi{10.1016/j.jairtraman.2024.102609}.
+%Type = Article
+\bibitem[{O'Connor et~al.(2024)O'Connor, Flin and Sennett}]{ORconnor2024}
+\bibinfo{author}{O'Connor, P.}, \bibinfo{author}{Flin, R.},
+  \bibinfo{author}{Sennett, C.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Safety culture as a moderator of training transfer in
+  aviation maintenance}.
+\newblock \bibinfo{journal}{Reliability Engineering \& System Safety}
+  \bibinfo{volume}{243}, \bibinfo{pages}{109842}.
+\newblock \DOIprefix\doi{10.1016/j.ress.2024.109842}.
+%Type = Article
+\bibitem[{O'Reilly et~al.(2024)O'Reilly, Murphy and Doyle}]{ORreilly2024}
+\bibinfo{author}{O'Reilly, K.}, \bibinfo{author}{Murphy, J.},
+  \bibinfo{author}{Doyle, S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Regulatory gaps in kirkpatrick implementation for
+  {AS9100}-certified maintenance organisations}.
+\newblock \bibinfo{journal}{Journal of Air Transport Management}
+  \bibinfo{volume}{118}, \bibinfo{pages}{102641}.
+\newblock \DOIprefix\doi{10.1016/j.jairtraman.2024.102641}.
+%Type = Article
+\bibitem[{Oschman(2017)}]{Oschman2017}
+\bibinfo{author}{Oschman, J.J.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Strategic quality management and {AS9100}: A
+  practitioner's perspective}.
+\newblock \bibinfo{journal}{Quality Engineering} \bibinfo{volume}{29},
+  \bibinfo{pages}{410--422}.
+\newblock \DOIprefix\doi{10.1080/08982112.2016.1219384}.
+%Type = Article
+\bibitem[{Patel et~al.(2023)Patel, Kumar and Singh}]{Patel2023}
+\bibinfo{author}{Patel, R.}, \bibinfo{author}{Kumar, A.},
+  \bibinfo{author}{Singh, V.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Isolating training effects in complex socio-technical
+  systems: A quasi-experimental approach}.
+\newblock \bibinfo{journal}{Reliability Engineering \& System Safety}
+  \bibinfo{volume}{237}, \bibinfo{pages}{109368}.
+\newblock \DOIprefix\doi{10.1016/j.ress.2023.109368}.
+%Type = Article
+\bibitem[{Pereira(2017)}]{Pereira2017}
+\bibinfo{author}{Pereira, J.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Risk-based maintenance cost modelling in aircraft
+  engine overhaul}.
+\newblock \bibinfo{journal}{Reliability Engineering \& System Safety}
+  \bibinfo{volume}{166}, \bibinfo{pages}{15--24}.
+\newblock \DOIprefix\doi{10.1016/j.ress.2017.05.007}.
+%Type = Article
+\bibitem[{Peterson(2025)}]{Peterson2025}
+\bibinfo{author}{Peterson, T.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Predictive modelling of training {ROI} in
+  high-reliability operations}.
+\newblock \bibinfo{journal}{Journal of Air Transport Management}
+  \bibinfo{volume}{120}, \bibinfo{pages}{102703}.
+\newblock \DOIprefix\doi{10.1016/j.jairtraman.2025.102703}.
+%Type = Book
+\bibitem[{Reason(2016)}]{Reason2016}
+\bibinfo{author}{Reason, J.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Organizational Accidents Revisited}.
+\newblock \bibinfo{publisher}{Ashgate}, \bibinfo{address}{Farnham, UK}.
+%Type = Article
+\bibitem[{Sousa et~al.(2025)Sousa, Lima and Costa}]{Sousa2025}
+\bibinfo{author}{Sousa, S.}, \bibinfo{author}{Lima, M.},
+  \bibinfo{author}{Costa, R.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Human capital development in high-reliability
+  organisations: A case for cleaner production}.
+\newblock \bibinfo{journal}{Journal of Cleaner Production}
+  \bibinfo{volume}{432}, \bibinfo{pages}{139800}.
+\newblock \DOIprefix\doi{10.1016/j.jclepro.2025.139800}.
+%Type = Article
+\bibitem[{Yang and Park(2024)}]{Yang2024}
+\bibinfo{author}{Yang, L.}, \bibinfo{author}{Park, S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Integrating human factors into lean management for
+  resource efficiency in aviation {MRO}}.
+\newblock \bibinfo{journal}{Journal of Cleaner Production}
+  \bibinfo{volume}{448}, \bibinfo{pages}{141462}.
+\newblock \DOIprefix\doi{10.1016/j.jclepro.2024.141462}.
+%Type = Article
+\bibitem[{Zhang et~al.(2025)Zhang, Wang and Chen}]{Zhang2025}
+\bibinfo{author}{Zhang, L.}, \bibinfo{author}{Wang, T.}, \bibinfo{author}{Chen,
+  J.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Training failure costs in {MRO} operations: A
+  multi-site benchmarking study}.
+\newblock \bibinfo{journal}{Journal of Air Transport Management}
+  \bibinfo{volume}{123}, \bibinfo{pages}{102785}.
+\newblock \DOIprefix\doi{10.1016/j.jairtraman.2025.102785}.
+
+\end{thebibliography}

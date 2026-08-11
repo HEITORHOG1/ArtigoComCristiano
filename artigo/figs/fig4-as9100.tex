@@ -1,0 +1,66 @@
+% =============================================================================
+% Figure 4 -- AS9100 requirements relevant to maintenance training
+% =============================================================================
+\begin{tikzpicture}[
+  every node/.style={font=\small, align=center, inner sep=4pt},
+  head/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=13cm, minimum height=0.9cm
+  },
+  sub/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=1.8cm, minimum height=1.0cm
+  },
+  item/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpGreen, fill=kpGreenL, thick,
+    minimum width=2.4cm, minimum height=1.0cm
+  },
+  arrow/.style={-{Stealth[length=2mm]}, thick}
+]
+ % Top: contract
+ \node[head, fill=kpOrangeL, draw=kpOrange] (c) at (0,6.0)
+  {Contract with customers};
+
+ % AS9100 header
+ \node[head] (a) at (0,4.6)
+  {AS9100 -- Quality Management Systems for Aviation, Space \& Defence};
+ \draw[arrow] (c) -- (a);
+
+ % Seven clauses, horizontally spaced ~2.1 cm apart
+ \node[sub] (s4) at (-6.3,3.1) {\textbf{4}\\Context};
+ \node[sub] (s5) at (-4.2,3.1) {\textbf{5}\\Leadership};
+ \node[sub] (s6) at (-2.1,3.1) {\textbf{6}\\Planning};
+ \node[sub] (s7) at ( 0.0,3.1) {\textbf{7}\\Support};
+ \node[sub] (s8) at ( 2.1,3.1) {\textbf{8}\\Operation};
+ \node[sub] (s9) at ( 4.2,3.1) {\textbf{9}\\Perf. eval.};
+ \node[sub] (s10) at ( 6.3,3.1) {\textbf{10}\\Improvement};
+
+ \draw[arrow] (a) -- (s4);
+ \draw[arrow] (a) -- (s5);
+ \draw[arrow] (a) -- (s6);
+ \draw[arrow] (a) -- (s7);
+ \draw[arrow] (a) -- (s8);
+ \draw[arrow] (a) -- (s9);
+ \draw[arrow] (a) -- (s10);
+
+ % Sub-items: 6.1 (left), 8.1.1 (right) -- displaced outwards to avoid
+ % overlap with the central 7.x chain. Arrows bend from parents s6 / s8.
+ \node[item] (i61) at (-4.2, 1.6) {6.1 Risks \&\\Opportunities};
+ \node[item] (i811) at ( 4.2, 1.6) {8.1.1 Operational\\risk management};
+ \draw[arrow] (s6) |- (i61);
+ \draw[arrow] (s8) |- (i811);
+
+ % Central vertical chain under clause 7
+ \node[item] (i71) at (0.0, 1.6) {7.1 Resources};
+ \node[item] (i72) at (0.0, 0.4) {7.2 Competence};
+ \node[item] (i73) at (0.0,-0.8) {7.3 Awareness};
+ \node[item] (i74) at (0.0,-2.0) {7.4 Communication};
+
+ \draw[arrow] (s7) -- (i71);
+ \draw[arrow] (i71) -- (i72);
+ \draw[arrow] (i72) -- (i73);
+ \draw[arrow] (i73) -- (i74);
+\end{tikzpicture}

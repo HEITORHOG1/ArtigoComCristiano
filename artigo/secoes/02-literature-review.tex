@@ -1,0 +1,128 @@
+% =============================================================================
+% 2. LITERATURE REVIEW
+% =============================================================================
+\section{Literature Review}
+\label{sec:literature}
+
+This section examines four bodies of literature that converge in the present
+study: (i) the Kirkpatrick model and its modern critiques; (ii) aviation
+maintenance training under regulatory pressure; (iii) human factors and
+socio-technical perspectives on maintenance error; and (iv) technological and
+economic enablers for next-generation evaluation. Section~\ref{subsec:gap}
+synthesises the gap.
+
+\subsection{Kirkpatrick's model: theoretical evolution and modern critiques}
+\label{subsec:kirkpatrick}
+
+Originally introduced in 1959 and consolidated in subsequent revisions, the
+four-level model of training evaluation \citep{Kirkpatrick2010} remains the
+most cited framework worldwide for assessing learning interventions. The
+levels are widely understood as
+\textit{Reaction} (participant satisfaction), \textit{Learning} (knowledge or
+skill acquisition), \textit{Behaviour} (transfer of training to the workplace)
+and \textit{Results} (organisational outcomes). The simplicity of the model
+explains its longevity, but it has also drawn substantial criticism for
+treating the four levels as a linear causal chain
+\citep{Patel2023,Fernandez2024}.
+
+Contemporary work has refined the model along three axes. First, attribution
+methods such as SHAP-based causal analysis and quasi-experimental design have
+been proposed to isolate the unique contribution of training when many other
+variables change simultaneously \citep{Fernandez2024}. Second, predictive
+extensions have been developed to forecast Level~3 and Level~4 outcomes from
+Level~1 and Level~2 signals, enabling more proactive management
+\citep{Peterson2025}. Third, integrative variants have linked Kirkpatrick to
+safety culture, human-capital metrics and sustainability indicators
+\citep{Sousa2025,Yang2024}. Despite these advances, empirical applications in
+regulated heavy-asset sectors remain limited.
+
+\subsection{Aviation maintenance training: regulatory imperatives and empirical shortfalls}
+\label{subsec:aviation-training}
+
+Aviation \MRO{} is regulated by a multi-level architecture that originates in
+the \ICAO{} Convention on International Civil Aviation, is implemented by the
+\FAA{}, \EASA{}, \ANAC{} and other civil aviation authorities (\CAA{}), and
+operationalised by individual airlines, airports and \MRO{} facilities
+through their Safety Management System (\SMS{}) manuals
+\citep{FAA2024,EASA2025}. In parallel, the aerospace quality standard
+\AS{} imposes specific requirements on the training process under its
+clauses on resources (7.1), competence (7.2), awareness (7.3) and
+communication (7.4) \citep{Oschman2017}.
+
+Empirical work consistently reports that compliance with these requirements
+does not automatically translate into reduced maintenance error.
+\citet{Nakamura2024} document a \emph{compliance paradox} whereby
+organisations satisfy regulatory documentation requirements while their
+underlying behavioural and outcome metrics remain stagnant.
+\citet{ORconnor2024} highlight the moderating role of safety culture in
+determining whether training transfers to operational behaviour, while
+\citet{Boyd2015} show that maintenance-related accident rates have plateaued
+over the past two decades despite expanded training budgets. Recent
+reviews specific to \MRO{} economics indicate that quality-cost reductions
+from training are achievable but require systematic evaluation beyond
+Level~1 \citep{Zhang2025,Garcia2024}.
+
+\subsection{Human factors and socio-technical systems in maintenance}
+\label{subsec:human-factors}
+
+The contemporary understanding of maintenance error rests on the recognition
+that errors are properties of socio-technical systems rather than properties
+of individuals. \citet{Reason2016} provides the canonical model of latent and
+active failures, recently extended by \citet{Leveson2024} into systems-theory
+formulations that emphasise hierarchical control and feedback loops.
+\citet{Dismukes2023} adds cognitive depth, showing that procedural deviations
+in maintenance frequently originate from attentional bottlenecks rather than
+from lack of knowledge, which has direct implications for the design of
+training and assessment.
+
+The relevance of this stream of literature for the present case study is
+twofold. First, it justifies why a Level~2 (Learning) outcome alone does not
+guarantee a Level~3 (Behaviour) outcome --- attention, fatigue, time pressure
+and supervision practice all intervene. Second, it grounds the choice of
+combining post-training questionnaires with direct on-the-job observation in
+the data collection design (Section~\ref{sec:methodology}).
+
+\subsection{Technological enablers for next-generation evaluation}
+\label{subsec:tech-enablers}
+
+Recent work indicates that digital tools --- notably digital twins for
+procedural rehearsal \citep{Garcia2024} and causal-attribution methods
+\citep{Fernandez2024} --- can extend training evaluation beyond
+paper-based satisfaction surveys. While these enablers are not used in
+the present case study, they are revisited in
+Section~\ref{subsec:limitations} as future-research directions for
+disentangling training effects from contemporaneous confounders and for
+continuous Level~3 measurement.
+
+\subsection{Bridging theory to practice: the safety--sustainability nexus}
+\label{subsec:bridge}
+
+The most recent literature explicitly links human-capital development in
+high-reliability organisations with cleaner-production and circular-economy
+outcomes \citep{Sousa2025,Yang2024,Chen2023}. The argument runs as follows:
+every prevented error reduces the consumption of raw material, energy and
+labour associated with rework, scrap, warranty and concession. When the
+prevention mechanism is training, the resulting savings should be visible in
+quality-cost accounts and in \ESG{} disclosures.
+
+\subsection{Research gap}
+\label{subsec:gap}
+
+Three observations summarise the gap targeted by this paper:
+
+\begin{enumerate}[label=(\roman*)]
+  \item Despite the maturity of Kirkpatrick, empirical operationalisation
+        beyond Level~2 in \AS{}-certified \MRO{} facilities is rare and
+        the few existing studies report only safety or only economic
+        outcomes, not both.
+  \item Regulatory frameworks (\FAA{}, \EASA{}, \ANAC{}) mandate training but
+        do not prescribe how to evaluate it across the four Kirkpatrick
+        levels, creating a wide variance in practice.
+  \item The literature linking training effectiveness to sustainability
+        outcomes in aviation \MRO{} is incipient: the explicit translation of
+        Levels~3 and~4 into material, energy and waste indicators has not yet
+        been documented in a single longitudinal case.
+\end{enumerate}
+
+The present case study addresses these three observations directly through
+the design described in Section~\ref{sec:methodology}.
