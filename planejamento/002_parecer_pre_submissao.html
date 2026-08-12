@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parecer técnico — Kirkpatrick/JATM</title>
+</head>
+<body>
+<style>
+:root{
+  --ground:#F6F7F9; --panel:#FFFFFF; --panel-2:#EFF2F6;
+  --ink:#14181E; --ink-2:#3F4855; --ink-3:#6B7684;
+  --rule:#D9DFE7; --rule-soft:#E8ECF1;
+  --accent:#1F5C8B; --accent-soft:#E4EDF5;
+  --crit:#A81E14; --crit-soft:#FBE9E7;
+  --maj:#8C5209; --maj-soft:#FBF0DF;
+  --min:#4A5563; --min-soft:#EDEFF2;
+  --ok:#256045; --ok-soft:#E3F0E8;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101419; --panel:#171C23; --panel-2:#1D242C;
+    --ink:#E7ECF2; --ink-2:#B3BDC9; --ink-3:#818D9B;
+    --rule:#2B333D; --rule-soft:#222933;
+    --accent:#79B2DC; --accent-soft:#1A2B39;
+    --crit:#F0857A; --crit-soft:#341A17;
+    --maj:#E0A960; --maj-soft:#332616;
+    --min:#9AA6B4; --min-soft:#212831;
+    --ok:#77C39B; --ok-soft:#16291F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101419; --panel:#171C23; --panel-2:#1D242C;
+  --ink:#E7ECF2; --ink-2:#B3BDC9; --ink-3:#818D9B;
+  --rule:#2B333D; --rule-soft:#222933;
+  --accent:#79B2DC; --accent-soft:#1A2B39;
+  --crit:#F0857A; --crit-soft:#341A17;
+  --maj:#E0A960; --maj-soft:#332616;
+  --min:#9AA6B4; --min-soft:#212831;
+  --ok:#77C39B; --ok-soft:#16291F;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px 96px}
+.col{max-width:70ch}
+
+/* ---------- masthead ---------- */
+header.mast{border-bottom:2px solid var(--ink);margin-bottom:40px;padding:56px 0 22px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.6vw,46px);line-height:1.1;letter-spacing:-.015em;margin:0 0 14px;text-wrap:balance;max-width:20ch}
+.sub{font-size:17px;color:var(--ink-2);margin:0 0 26px;max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.03em}
+.meta b{color:var(--ink-2);font-weight:600}
+
+/* ---------- verdict ---------- */
+.verdict{background:var(--crit-soft);border:1px solid var(--crit);border-left-width:5px;border-radius:3px;padding:24px 26px;margin:0 0 46px}
+.verdict h2{font-family:var(--sans);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--crit);margin:0 0 10px;font-weight:700}
+.verdict p{margin:0 0 12px;font-size:16.5px;color:var(--ink);max-width:74ch}
+.verdict p:last-child{margin-bottom:0}
+.verdict strong{font-weight:650}
+
+/* ---------- tally ---------- */
+.tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;margin:0 0 52px;overflow:hidden}
+.tally div{background:var(--panel);padding:18px 20px}
+.tally .n{font-family:var(--serif);font-size:34px;line-height:1;font-variant-numeric:tabular-nums;display:block;margin-bottom:7px}
+.tally .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+.n.crit{color:var(--crit)} .n.maj{color:var(--maj)} .n.min{color:var(--min)} .n.ok{color:var(--ok)}
+
+/* ---------- sections ---------- */
+section{margin:0 0 56px;scroll-margin-top:20px}
+h2.sec{font-family:var(--serif);font-size:27px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px;text-wrap:balance}
+.sec-note{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+h3{font-family:var(--sans);font-size:16.5px;font-weight:650;margin:30px 0 8px;letter-spacing:-.005em}
+p{margin:0 0 15px;max-width:74ch}
+ul,ol{margin:0 0 15px;padding-left:22px;max-width:74ch}
+li{margin-bottom:7px}
+code{font-family:var(--mono);font-size:.855em;background:var(--panel-2);padding:1.5px 5px;border-radius:2.5px;color:var(--ink)}
+a{color:var(--accent);text-underline-offset:2.5px;text-decoration-thickness:1px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;margin:0 0 22px;border:1px solid var(--rule);border-radius:3px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:620px}
+th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--rule);white-space:nowrap;background:var(--panel-2)}
+td{padding:11px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:0}
+td.k{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--ink)}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:2.5px 7px;border-radius:2px;font-weight:600;white-space:nowrap}
+.t-x{background:var(--crit-soft);color:var(--crit);border:1px solid var(--crit)}
+.t-w{background:var(--maj-soft);color:var(--maj);border:1px solid var(--maj)}
+.t-o{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+
+/* ---------- findings ---------- */
+.find{border:1px solid var(--rule);border-left:4px solid var(--min);background:var(--panel);border-radius:3px;padding:18px 20px;margin:0 0 14px}
+.find.c{border-left-color:var(--crit)}
+.find.m{border-left-color:var(--maj)}
+.find h4{margin:0 0 9px;font-size:15.5px;font-weight:650;line-height:1.4;letter-spacing:-.003em}
+.find p{margin:0 0 9px;font-size:14.5px;color:var(--ink-2)}
+.find p:last-child{margin-bottom:0}
+.find .src{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-bottom:9px;word-break:break-word}
+.fix{background:var(--accent-soft);border-radius:2px;padding:10px 13px;font-size:14px;color:var(--ink);margin-top:11px}
+.fix b{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+
+/* ---------- scorecard ---------- */
+.score td.g{font-family:var(--mono);font-weight:700;text-align:center;width:52px;font-size:13px}
+.g-I{color:var(--crit)} .g-R{color:var(--maj)} .g-B{color:var(--ink-2)} .g-MB{color:var(--ok)}
+
+/* ---------- callout ---------- */
+.note{border-left:3px solid var(--rule);padding:2px 0 2px 18px;margin:0 0 22px;color:var(--ink-2);font-size:15px}
+details{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:0;margin:0 0 14px}
+summary{cursor:pointer;padding:13px 18px;font-weight:600;font-size:14.5px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ ";color:var(--accent);font-size:12px}
+details[open] summary::before{content:"▾ "}
+details[open] summary{border-bottom:1px solid var(--rule-soft)}
+.dbody{padding:16px 18px}
+.dbody ul{margin-bottom:0}
+.dbody li{font-size:14.5px;color:var(--ink-2)}
+
+/* ---------- steps ---------- */
+ol.plan{list-style:none;padding:0;counter-reset:s;max-width:none}
+ol.plan li{counter-increment:s;display:grid;grid-template-columns:38px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule-soft);margin:0}
+ol.plan li:last-child{border-bottom:0}
+ol.plan li::before{content:counter(s);font-family:var(--mono);font-size:12px;color:var(--accent);border:1px solid var(--rule);border-radius:50%;width:28px;height:28px;display:grid;place-items:center;font-weight:600}
+ol.plan h4{margin:2px 0 5px;font-size:15.5px;font-weight:650}
+ol.plan p{margin:0;font-size:14.5px;color:var(--ink-2)}
+footer{border-top:1px solid var(--rule);padding-top:20px;margin-top:60px;font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.7}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="kicker">Parecer técnico · pré-submissão</p>
+  <h1>A Kirkpatrick-based Framework for Safety and Sustainability in Aviation Maintenance</h1>
+  <p class="sub">Auditoria completa do manuscrito preparado para o <i>Journal of Air Transport Management</i> — referências, estatística, desenho metodológico, consistência numérica, conformidade editorial e redação.</p>
+  <div class="meta">
+    <span><b>Alvo</b> JATM (Elsevier, cas-dc)</span>
+    <span><b>Estado</b> revisão respondendo a 10 comentários</span>
+    <span><b>Data</b> 11 ago 2026</span>
+    <span><b>Método</b> 6 auditorias independentes + 79 verificações adversariais</span>
+  </div>
+</header>
+
+<div class="verdict">
+  <h2>Veredicto</h2>
+  <p><strong>Não submeter nesta versão.</strong> O problema não é de redação nem de formatação: <strong>15 das 20 referências citadas não existem</strong>, e oito DOIs apontam para artigos reais mas completamente alheios ao tema (iluminação de fábrica naval, enxames de drones, tarifas aéreas brasileiras). Entre elas está <code>Pereira2017</code> — a autocitação do autor correspondente que carrega o valor de USD&nbsp;189.500 por reclamação de garantia, base de todo o modelo econômico.</p>
+  <p>A isso soma-se uma contradição direta entre figura e texto: a <strong>Figura&nbsp;7 mostra 6 dos 21 participantes abaixo da nota de corte</strong> (taxa de aprovação de 71,4%), enquanto o texto afirma três reprovações e 86%. E as três figuras de dados trazem, no próprio arquivo-fonte, o comentário <code>Values reconstructed</code>, contra a declaração da metodologia de que <i>“no values were synthesised or imputed”</i>.</p>
+  <p>A Elsevier roda checagem automática de referências contra o Crossref na submissão. Nesse estado, o desfecho mais provável não é <i>major revision</i> — é <i>desk rejection</i> com encaminhamento de integridade. <strong>A tese, o desenho e a escrita valem o resgate; a base documental precisa ser reconstruída antes de qualquer outra coisa.</strong></p>
+</div>
+
+<div class="tally">
+  <div><span class="n crit">26</span><span class="l">bloqueadores</span></div>
+  <div><span class="n maj">36</span><span class="l">maiores</span></div>
+  <div><span class="n min">19</span><span class="l">menores</span></div>
+  <div><span class="n ok">3</span><span class="l">refutados na verificação</span></div>
+</div>
+
+<!-- ============================================ -->
+<section id="refs">
+  <h2 class="sec">1. A bibliografia é o problema que domina todos os outros</h2>
+  <p class="sec-note">10 bloqueadores · verificado via API Crossref, entrada por entrada</p>
+
+  <p>Cada DOI de <code>references.bib</code> foi consultado na API do Crossref e cruzado com pelo menos duas buscas independentes por título. O resultado: <strong>2 entradas íntegras, 3 com metadados errados e 15 sem qualquer registro de existência</strong>.</p>
+
+  <p>O padrão é específico e reconhecível: nomes de pesquisadores reais, títulos plausíveis, periódicos corretos para a área, DOIs com a sintaxe certa — e nenhum dos artigos existe. Vários DOIs, por serem sintaticamente válidos, resolvem para trabalhos reais de outros autores.</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Chave</th><th>Situação</th><th>O que o DOI realmente resolve</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Pereira2017</td><td><span class="tag t-x">inexistente</span></td><td>Levitin, Xing &amp; Dai — <i>Optimal arrangement of connecting elements… warm standby groups</i>, RESS <b>165</b></td></tr>
+      <tr><td class="k">Zhang2025</td><td><span class="tag t-x">inexistente</span></td><td>Teixeira — <i>Airfares adjustment to fuel price shocks: Brazilian airline market</i>, JATM <b>125</b></td></tr>
+      <tr><td class="k">ORreilly2024</td><td><span class="tag t-x">inexistente</span></td><td>Barnett &amp; Reig Torra — <i>Airline safety: Still getting better?</i>, JATM <b>119</b></td></tr>
+      <tr><td class="k">Chen2023</td><td><span class="tag t-x">inexistente</span></td><td>Uyan, Atlar &amp; Ölçer — <i>…lighting systems for a marine equipment manufacturing plant</i>, JCP <b>413</b></td></tr>
+      <tr><td class="k">Fernandez2024</td><td><span class="tag t-x">inexistente</span></td><td>Yeh — <i>Time-reliability optimization for the stochastic TSP</i>, RESS 248</td></tr>
+      <tr><td class="k">Patel2023</td><td><span class="tag t-x">inexistente</span></td><td>Li et&nbsp;al. — <i>…resilience of UAV swarms under continuous attack</i>, RESS 237</td></tr>
+      <tr><td class="k">Leveson2024</td><td><span class="tag t-x">inexistente</span></td><td>Menzemer et&nbsp;al. — <i>Fire evacuation training: perceptions and attitudes</i>, Safety Science 174</td></tr>
+      <tr><td class="k">Yang2024</td><td><span class="tag t-x">inexistente</span></td><td>Luo et&nbsp;al. — <i>Magnetically triggered heat release… battery thermal management</i>, JCP <b>446</b></td></tr>
+      <tr><td class="k">Nakamura2024</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · busca por título não retorna nada</td></tr>
+      <tr><td class="k">Garcia2024</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · busca por título não retorna nada</td></tr>
+      <tr><td class="k">ORconnor2024</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · só retorna trabalhos alheios sobre cultura de segurança</td></tr>
+      <tr><td class="k">Dismukes2023</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · R.&nbsp;Key Dismukes é real (NASA Ames), sem esse artigo</td></tr>
+      <tr><td class="k">Oschman2017</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · “James J. Oschman” resolve para biofísico de medicina energética</td></tr>
+      <tr><td class="k">Peterson2025</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · e JATM vol.&nbsp;120 é de 2024, não 2025</td></tr>
+      <tr><td class="k">Sousa2025</td><td><span class="tag t-x">inexistente</span></td><td>DOI 404 · e JCP vol.&nbsp;432 é de dez/2023, não 2025</td></tr>
+      <tr><td class="k">Boyd2015</td><td><span class="tag t-w">metadado errado</span></td><td>Existe, mas em <i>J. of Aviation Technology and Engineering</i> 5(1), DOI 10.7771/2159-6670.1123 — não JATM 49:21–26</td></tr>
+      <tr><td class="k">FAA2024</td><td><span class="tag t-w">metadado errado</span></td><td>A circular de SMS de 2024 é a <b>AC 120-92D</b>; “120-92C” nunca foi emitida</td></tr>
+      <tr><td class="k">Kirkpatrick2010</td><td><span class="tag t-w">metadado errado</span></td><td>A 3ª edição de <i>Evaluating Training Programs</i> é Berrett-Koehler <b>2006</b></td></tr>
+      <tr><td class="k">EASA2025</td><td><span class="tag t-o">íntegra</span></td><td>Annual Safety Review 2025 — confere</td></tr>
+      <tr><td class="k">Reason2016</td><td><span class="tag t-o">íntegra</span></td><td>Organizational Accidents Revisited, Ashgate/Routledge 2016 — confere</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>O que desaba junto</h3>
+  <p>Não é só a lista de referências. Afirmações estruturais do artigo ficam sem lastro:</p>
+  <div class="find c">
+    <h4>Todo o primeiro parágrafo da Introdução</h4>
+    <p class="src">secoes/01-introduction.tex:7–24</p>
+    <p>“USD 90 billion” de mercado MRO, “12% a 18%” dos acidentes atribuíveis à manutenção, o multiplicador de “três a sete vezes” do custo indireto e os “USD 189.500” por reclamação de garantia — os quatro números que estabelecem a relevância do problema — apoiam-se em <code>Zhang2025</code>, <code>Boyd2015</code> e <code>Pereira2017</code>. Nenhum sustenta a afirmação como citada.</p>
+  </div>
+  <div class="find c">
+    <h4>A lacuna de pesquisa</h4>
+    <p class="src">secoes/01-introduction.tex:60–66</p>
+    <p>“Fewer than 20% of published applications go beyond Level 2” — a frase que justifica a existência do artigo — cita <code>ORreilly2024</code> e <code>Peterson2025</code>. Ambas inexistentes.</p>
+  </div>
+  <div class="find c">
+    <h4>O modelo econômico inteiro</h4>
+    <p class="src">secoes/04-results.tex:213–227</p>
+    <p>O custo unitário de USD&nbsp;189.500 vem de <code>Pereira2017</code>. Dele deriva <i>W</i>&nbsp;=&nbsp;USD&nbsp;380.000 (exatamente 2,005 reclamações), depois ΔC<sub>EF</sub>, depois o resultado de USD&nbsp;1,19&nbsp;M do abstract, dos highlights e da conclusão.</p>
+  </div>
+  <div class="find c">
+    <h4>A carta de resposta afirma ao editor algo que não se sustenta</h4>
+    <p class="src">response-to-reviewers.tex — Comentário 3</p>
+    <p>“The reference list thus includes papers from JATM volumes 116–123 (2024–2025)”. Nenhum dos cinco é verificável. O revisor pediu explicitamente, no Comentário 10, que essas referências fossem <i>verificadas</i>.</p>
+    <div class="fix"><b>Correção</b>Reescrever a resposta ao Comentário 3 somente depois de a bibliografia ser refeita, e responder o Comentário 10 declarando a verificação efetivamente realizada.</div>
+  </div>
+  <div class="find c">
+    <h4><code>references.bib</code> ainda contém quatro entradas “Author, A.” e um bloco TODO</h4>
+    <p class="src">references.bib:10–18, 232–270</p>
+    <p>As entradas <code>JATMnew2023a</code>…<code>JATMnew2025a</code> não estão citadas — logo não imprimem no PDF — mas seguem no arquivo, junto do comentário que declara 15 entradas com DOI “still to be verified”. A Elsevier recebe o <code>.bib</code>/<code>.bbl</code> no pacote de submissão.</p>
+  </div>
+
+  <div class="note">Uma consideração de risco, sem juízo sobre a origem: o manuscrito traz uma declaração formal de que <i>nenhuma</i> tecnologia de IA generativa foi usada. Se referências não verificáveis forem identificadas depois da submissão, essa declaração deixa de ser neutra e passa a agravar o quadro perante o editor. Reconstruir a bibliografia a partir de fontes primárias resolve os dois pontos de uma vez.</div>
+</section>
+
+<!-- ============================================ -->
+<section id="figs">
+  <h2 class="sec">2. As figuras de dados contradizem o texto</h2>
+  <p class="sec-note">3 bloqueadores · conferido por script sobre as coordenadas dos arquivos TikZ</p>
+
+  <div class="find c">
+    <h4>Figura 7 (notas do Nível 2): seis reprovações plotadas, três declaradas</h4>
+    <p class="src">figs/fig9-final-grades.tex → secoes/04-results.tex:118–121 · tabelas/table1-before-after.tex</p>
+    <p>As coordenadas abaixo de 70 são <code>65, 68, 68, 69, 68, 69</code> — seis participantes, aprovação de <b>15/21 = 71,4%</b>. O texto afirma <i>“Three participants did not reach the pass mark”</i> e uma taxa de 86%. O comentário dentro do próprio arquivo diz <i>“three values below 70”</i>.</p>
+    <p>Consequência dupla: a taxa plotada (71,4%) fica <b>abaixo</b> do baseline declarado de 78%, ou seja, a figura mostra piora onde o artigo relata melhora — e é essa melhora que a Discussão 5.2 e a Tabela 1 interpretam.</p>
+    <div class="fix"><b>Correção</b>Recuperar as notas reais dos 21 participantes no LMS e refazer a série. Se 86% for o valor correto, apenas 3 coordenadas podem ficar abaixo de 70.</div>
+  </div>
+
+  <div class="find c">
+    <h4>As três figuras de dados declaram, no fonte, que os valores foram reconstruídos</h4>
+    <p class="src">figs/fig8-training-scores.tex:3 · fig9-final-grades.tex:3 · fig10-customer-satisfaction.tex:3–5</p>
+    <p><code>% Values reconstructed from aggregated facility reports</code> e <code>% Reconstructed grades</code>, contra a metodologia: <i>“All values reported in the figures and tables correspond to actual operational records of the facility… No values were synthesised or imputed.”</i></p>
+    <div class="fix"><b>Correção</b>Ou as figuras passam a plotar os registros originais, ou a declaração da metodologia é reescrita para descrever exatamente o grau de agregação e reconstrução aplicado. As duas afirmações não podem coexistir.</div>
+  </div>
+
+  <div class="find m">
+    <h4>Figura 6 (reação): três sessões com queda abaixo de 8, não duas</h4>
+    <p class="src">figs/fig8-training-scores.tex → secoes/04-results.tex:99–101 · secoes/05-discussion.tex:20–24</p>
+    <p>Quedas abaixo de 8: T5 Punctuality&nbsp;7,8 · T6 Mastery&nbsp;5,2 · T9 Mastery&nbsp;4,0 — três sessões. A Discussão fala em “the two sub-9 scores”; existem <b>cinco</b> valores abaixo de 9. E dois deles (5,2 e 4,0 em <i>domínio do instrutor</i>) são sinais negativos reais que a prosa trata como “isolated dips”.</p>
+    <div class="fix"><b>Correção</b>Acertar as contagens e usar os dois escores baixos de <i>Mastery</i> como achado: são a evidência mais convincente de que o Nível 1 funciona como alerta precoce — hoje o artigo os esconde em vez de capitalizá-los.</div>
+  </div>
+
+  <div class="find m">
+    <h4>Figura 8 e Tabela 1 discordam sobre satisfação do cliente</h4>
+    <p class="src">figs/fig10-customer-satisfaction.tex · tabelas/table1-before-after.tex · main.tex (abstract)</p>
+    <p>Média das cinco categorias pós-intervenção = 4,64; a Tabela 1 registra 4,7. O abstract afirma médias “consistently in the upper range of the five-point scale”, mas <i>TechDocs</i> marca 3,8. E a Tabela 1 registra o baseline como <code>n.a.</code> (“instrumento estruturado não existia”) enquanto a Figura 8 plota barras pré-intervenção — que são a única base da afirmação de melhora “across all five categories”.</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<section id="stats">
+  <h2 class="sec">3. Estatística: os intervalos de confiança não são obteníveis</h2>
+  <p class="sec-note">5 bloqueadores · 8 maiores</p>
+
+  <div class="find c">
+    <h4>O IC de [22%, 48%] exigiria ~237 constatações de auditoria</h4>
+    <p class="src">secoes/04-results.tex:153–155 · secoes/03-methodology.tex:74–77</p>
+    <p>A taxa de não conformidade é definida por ciclo de auditoria da autoridade civil. Fazendo engenharia reversa com razão de taxas de Poisson, o intervalo relatado implica <b>237 constatações no baseline e 154 na intervenção</b> — cerca de 391 achados de autoridade em uma única instalação em dois anos.</p>
+    <p>Com contagens realistas o intervalo sempre cruza zero: 2 ciclos/ano (6→4 achados) dá [−136%, +81%]; 4 ciclos (20→13) dá [−31%, +68%]; 8 ciclos (24→16) dá [−26%, +65%]. O mínimo que excluiria o nulo é 53 achados no baseline. Nenhum valor-p é reportado para essa métrica.</p>
+    <div class="fix"><b>Correção</b>Publicar as contagens brutas (ciclos e achados por ano) e reportar um IC exato de Poisson, mesmo que cruze 1 — ou apresentar os 35% como descritivos e declarar que o número de ciclos não sustenta estimativa intervalar.</div>
+  </div>
+
+  <div class="find c">
+    <h4>O IC rotulado “absoluto” é dimensionalmente impossível</h4>
+    <p class="src">secoes/04-results.tex:149–155</p>
+    <p>A métrica é uma <i>taxa por 1.000 tarefas</i>; uma redução absoluta nela tem unidade de falhas/1.000 tarefas, não porcentagem. Além disso os dois intervalos são exatamente simétricos (28−19 = 37−28 = 9; 35−22 = 48−35 = 13), assinatura de um Wald sobre diferença de risco — enquanto o estimador de ponto (“28% lower”, Tabela 1: 100→72) é uma redução <b>relativa</b>, cujo IC se constrói em escala log e volta assimétrico. O intervalo e o estimando não podem estar ambos corretos.</p>
+    <div class="fix"><b>Correção</b>Escolher um estimando: “razão de taxas 0,72 (IC 95% exato de Poisson x–y), i.e. redução relativa de 28%”, com as taxas absolutas de base e de intervenção declaradas. Levar os ICs para o abstract em vez de remeter à Seção 4.</div>
+  </div>
+
+  <div class="find c">
+    <h4>Teste errado para a família de dados</h4>
+    <p class="src">secoes/03-methodology.tex:126–133</p>
+    <p>Taxas de contagem (por 1.000 tarefas; por ciclo de auditoria) são analisadas com testes z de duas proporções e qui-quadrado. Contagem com exposição pede Poisson/binomial negativa ou razão de taxas.</p>
+  </div>
+
+  <div class="find m">
+    <h4>O ganho do Nível 2 é ruído</h4>
+    <p class="src">secoes/04-results.tex:118–121 · secoes/05-discussion.tex:33–34</p>
+    <p>78%→86% com n=21 (18/21): z = 0,64, <b>p = 0,52</b>, IC da diferença de −15,1 a +30,0 pontos percentuais. Detectar 8 pp a partir de 78% com 80% de poder exigiria ~358 participantes por braço; o poder obtido é ~10%. A Discussão trata o resultado como confirmação.</p>
+    <p>No Nível 3, o número de eventos de observação nunca é informado — e a inferência muda de sinal conforme o denominador: n=20 dá [+0,6; +45,4] pp, n=100 dá [+13,0; +33,0].</p>
+  </div>
+
+  <div class="find m">
+    <h4>O modelo de custo reproduz os 28% que deveria corroborar</h4>
+    <p class="src">secoes/04-results.tex:196–227 · tabelas/table1-before-after.tex</p>
+    <p>A aritmética fecha (828.000 + 470.000 − 110.000 = 1.188.000). Mas a Tabela 1 mostra custos de qualidade caindo 4,2→3,0&nbsp;M, isto é 28,57% — praticamente idêntico à redução de 28% na taxa de falha. A estimativa econômica é os 28% reexpressos em dólares, não uma segunda medição independente.</p>
+    <p>Os baselines implícitos nunca são declarados: 4.800 horas de retrabalho economizadas a uma redução de 28% implicam 17.143 horas/ano de retrabalho atribuível a treinamento (~8,6 FTE); 12 componentes sucateados implicam 43/ano, USD 1,50&nbsp;M. Nenhum é reconciliado com uma coorte amostrada de 21 pessoas.</p>
+    <div class="fix"><b>Correção</b>Declarar como cada parâmetro foi medido, dar as contagens de base do ERP, e introduzir uma fração de atribuição explícita α na Eq. (3), reportando α=1 ao lado de um conservador α=0,5.</div>
+  </div>
+
+  <div class="find m">
+    <h4>Payback usa custo recorrente como investimento; ROI é definido e nunca avaliado</h4>
+    <p class="src">secoes/04-results.tex:229–258 · tabelas/table3-coq-scenarios.tex</p>
+    <p>O custo de prevenção/avaliação é explicitamente <i>por ano</i>, mas entra no numerador do payback enquanto o denominador já está líquido dele — dupla contagem. A Eq.&nbsp;(4) define ROI e nunca o calcula: seria 342% / 1.080% / 1.929%. O revisor pediu VPL; <code>NPV</code> aparece só como macro não usada em <code>main.tex:87</code>.</p>
+    <p>Abstract, highlights, Seção 6.1 e Conclusão dizem apenas “payback under twelve months” enquanto a Tabela 3 revela 0,6–3,5 <i>meses</i>. Um referee que abrir a tabela verá um retorno de 1.100% descrito como “menos de doze meses”.</p>
+    <div class="fix"><b>Correção</b>Separar custo de implantação único (configuração de LMS, treinamento de supervisores) do custo anual recorrente e calcular payback só sobre o primeiro. Reportar o ROI com a ressalva já redigida, e acrescentar um VPL de três anos a uma taxa declarada.</div>
+  </div>
+
+  <details>
+    <summary>Mais 5 achados estatísticos</summary>
+    <div class="dbody"><ul>
+      <li>A metodologia promete IC para quatro métricas; os Resultados reportam para duas. Há <b>um</b> valor-p em todo o artigo.</li>
+      <li>Nenhum denominador é informado: efetivo da instalação, total de tarefas, saídas de treinamento, eventos de observação. A taxa de falha ainda nomeia dois denominadores incompatíveis (por 1.000 tarefas / por saída de treinamento).</li>
+      <li>Quatro ou mais testes sem controle de multiplicidade, sem análise de poder, sem software declarado e sem tamanhos de efeito.</li>
+      <li>Cronbach α = 0,82 e Cohen κ = 0,78 sem unidade, sem n e sem IC — ambos os intervalos cruzam seus limiares convencionais nos tamanhos amostrais em jogo.</li>
+      <li>±25% uniforme não é análise de sensibilidade, é reescala: não identifica qual parâmetro domina nem onde fica o ponto de equilíbrio.</li>
+    </ul></div>
+  </details>
+</section>
+
+<!-- ============================================ -->
+<section id="method">
+  <h2 class="sec">4. Desenho e validade</h2>
+  <p class="sec-note">2 bloqueadores · 9 maiores · a seção mais bem escrita do artigo, e ainda assim a com maior exposição</p>
+
+  <p>A Seção 3.3 discute <i>history</i>, <i>maturation</i>, <i>instrumentation</i>, <i>selection</i> e Hawthorne por conta própria, antes de qualquer revisor cobrar. Isso é raro e conta a favor. Os problemas estão nas lacunas ao redor.</p>
+
+  <div class="find c">
+    <h4>Declaração de ética com placeholders no PDF compilado</h4>
+    <p class="src">main.tex:219–221 → main.pdf</p>
+    <p><i>“approved by the [Institution Ethics Committee] under protocol No. [X]”</i>. A <code>cover-letter.pdf</code> traz <code>[DATE]</code> na mesma condição.</p>
+    <p>Há ainda uma questão substantiva: observação comportamental de técnicos pelos próprios supervisores, num desenho em que o acesso ao ERP é condicionado ao desempenho em prova, torna o consentimento voluntário difícil de sustentar como voluntário.</p>
+  </div>
+
+  <div class="find m">
+    <h4>Sem quadro amostral para as 10 sessões e os 21 empregados</h4>
+    <p class="src">secoes/03-methodology.tex:32–60</p>
+    <p>A palavra “sampled” aparece sem regra de seleção, sem tamanho de população e sem justificativa. Os Níveis 1–2 saem dessa amostra; o Nível 4 é medido em toda a instalação. A cadeia causal do artigo atravessa essa incompatibilidade de unidade de análise sem a nomear.</p>
+  </div>
+
+  <div class="find m">
+    <h4>O gating de acesso ao ERP é uma co-intervenção não reconhecida</h4>
+    <p class="src">secoes/06-managerial-implications.tex (passo 2 do checklist) · secoes/03-methodology.tex:19–20</p>
+    <p>Condicionar acesso ao ERP à aprovação no Nível 2 é um controle de acesso, não um efeito de treinamento — e sozinho pode mover parte dos desfechos. A Seção 3.1 descreve a intervenção em uma frase, sem enumerar seus componentes.</p>
+  </div>
+
+  <div class="find m">
+    <h4>O parágrafo sobre <i>selection</i> é um não-sequitur</h4>
+    <p class="src">secoes/03-methodology.tex:157–160</p>
+    <p><i>“because no random assignment is performed, the cohort observed in the intervention year is the same that would have been observed in the absence of the intervention; this protects against selection bias”</i>. Ausência de aleatorização não protege contra viés de seleção — e a segunda oração é justamente a suposição contrafactual que o desenho não consegue estabelecer. Faltam ainda regressão à média, efeito de testagem e atrito.</p>
+  </div>
+
+  <div class="find m">
+    <h4>Recomendações regulatórias a partir de n=1</h4>
+    <p class="src">secoes/07-policy-recommendations.tex</p>
+    <p>A Seção 7 pede que FAA, EASA e ANAC <i>exijam</i> avaliação nos quatro níveis, sem hedge e sem remissão às limitações — em cima de doze meses num único sítio, com dados fornecidos pela própria instalação.</p>
+    <div class="fix"><b>Correção</b>Manter as recomendações — o JATM as valoriza — mas enquadrá-las como agenda a testar em piloto multissítio, ligando cada uma explicitamente à Tabela de limitações.</div>
+  </div>
+
+  <div class="find m">
+    <h4>Conflito de interesse: os documentos se contradizem</h4>
+    <p class="src">cover-letter.tex vs. main.tex:227–239</p>
+    <p>A cover letter certifica ao editor que não há conflitos de interesse. O manuscrito declara que o autor correspondente é da GE Aviation, que o sítio do estudo pertence à rede GE Aviation e que a GE revisou o manuscrito. A declaração do manuscrito está correta e é bem escrita; a da carta a contradiz.</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<section id="docs">
+  <h2 class="sec">5. Os documentos de submissão</h2>
+  <p class="sec-note">1 bloqueador · 5 maiores · a carta de resposta é hoje o documento mais frágil do pacote</p>
+
+  <div class="find c">
+    <h4>A carta informa um ROI que o artigo não reporta</h4>
+    <p class="src">response-to-reviewers.tex:132–137</p>
+    <p>“Even under the conservative scenario the ROI remains in the high triple digits.” O artigo diz o oposto — que evita deliberadamente um ROI pontual — e o número real seria 342% no cenário pessimista e 1.929% no otimista, não “high triple digits”. A carta cita “Eq. (3)”, que no manuscrito é a equação do resultado líquido, não a de ROI.</p>
+  </div>
+
+  <details>
+    <summary>Outros problemas do pacote de submissão</summary>
+    <div class="dbody"><ul>
+      <li><code>response-to-reviewers.pdf</code> compila com 8 erros de “Undefined control sequence” e sai com <code>Section ??</code> e chaves BibTeX cruas (<code>Nakamura2024</code>, <code>Garcia2024</code>) impressas no corpo do texto — o preâmbulo não carrega <code>natbib</code> nem <code>amsmath</code>.</li>
+      <li>A carta remete a seções, tabelas e conteúdo que não existem: “Section 4.6” (é 4.5), “Section 9”, “Table 2”, e uma alta de satisfação “de 3,4 para 4,7” que nem o abstract nem a Tabela 1 contêm.</li>
+      <li>O Comentário 4 pedia uma linha de resíduo material (kg ou USD) na tabela comparativa. Ela não existe na Tabela 1, e a carta omite isso em silêncio.</li>
+      <li><code>highlights.tex</code> e os highlights de <code>main.tex</code> divergem: o bullet 3 avulso afirma que economias “were obtained”, enquanto o do manuscrito diz “estimated”.</li>
+      <li>Abstract com 256 palavras (limite JATM: 250), remetendo a “Section 4” — abstracts devem ser autocontidos. 8 palavras-chave contra o teto de 6.</li>
+      <li>CRediT atribui “Funding acquisition” embora a declaração de financiamento informe que não houve aporte.</li>
+      <li>Seções 4.1 e 4.2 são revisão e 4.3 é a intervenção: três subseções de Resultados que não reportam resultados. 4.1–4.2 vão para a Seção 2; 4.3 vai para Metodologia.</li>
+    </ul></div>
+  </details>
+</section>
+
+<!-- ============================================ -->
+<section id="claims">
+  <h2 class="sec">6. Calibragem das afirmações</h2>
+  <p class="sec-note">A disciplina “associação, não causa” é adotada explicitamente — e vaza nos lugares mais visíveis</p>
+
+  <p>O artigo se compromete, na Seção 3.3 e no fim da 4.4, a relatar associações e não efeitos. É a decisão certa. Mas ela se rompe justamente onde mais gente lê:</p>
+
+  <div class="find m">
+    <h4>O abstract nega e afirma causalidade em frases consecutivas</h4>
+    <p class="src">main.tex:154–157</p>
+    <p><i>“The single-site case-study design supports association rather than causal attribution… <b>The intervention also prevented</b> the material and energy waste associated with corrective actions.”</i> — e “prevented” se refere a uma quantidade que o artigo declara nunca ter medido (“disaggregated environmental data are not available at the line-item level”).</p>
+  </div>
+
+  <div class="find m">
+    <h4>O título promete sustentabilidade quantificada; o artigo entrega um argumento de ordem de grandeza</h4>
+    <p class="src">main.tex (título) · secoes/04-results.tex:262–272</p>
+    <p><i>“Waste Reduction and Resource Efficiency”</i> e metade da contribuição declarada dependem de resíduo, energia e emissões. Nenhum kg, kWh ou kgCO₂e é medido em ponto algum — a quantificação é remetida a trabalho futuro. Esse é o desalinhamento que um referee do JATM mais provavelmente vai nomear.</p>
+    <div class="fix"><b>Correção</b>Ou medir o mínimo (kg de sucata evitada e horas de retrabalho já estão no ERP; kgCO₂e do frete expresso é derivável), ou realinhar o título para o que o artigo de fato entrega — algo como <i>“…: A Case Study Linking Training Effectiveness to Cost of Quality”</i>.</div>
+  </div>
+
+  <div class="find m">
+    <h4>O mapeamento central é especificado de três formas diferentes</h4>
+    <p class="src">figs/fig0-conceptual-model.tex:36–57 · secoes/04-results.tex:20–23 · secoes/06-managerial-implications.tex</p>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>Onde</th><th>Cláusulas usadas</th></tr></thead>
+      <tbody>
+        <tr><td>Figura 1 (modelo conceitual)</td><td>L1→7.3, 7.4 · L2→7.2 · L3→<i>SMS Safety Assurance</i> · L4→<b>cláusula 9</b></td></tr>
+        <tr><td>Resultados 4.1</td><td>6.1, 7.1, 7.2, 7.3, 7.4, 8.1.1 — <b>sem cláusula 9</b></td></tr>
+        <tr><td>Implicações gerenciais 6.3</td><td>L1→<b>7.1</b>, 7.3, 7.4 · L2/L3→7.2 · L4→cláusula 9</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>A cláusula 9 sustenta o Nível 4 em dois lugares e está ausente da seção que estabelece quais cláusulas são relevantes; 6.1, 7.1 e 8.1.1 aparecem lá e somem do modelo. A contribuição declara mapear “SMS pillars” no plural — o Anexo 19 tem quatro; a Figura 1 entrega <b>um</b>. E a coluna de sustentabilidade separa sucata (L2) de retrabalho (L3), enquanto a Eq. (1) soma ambos como falha interna.</p>
+    <div class="fix"><b>Correção</b>Fixar um mapeamento canônico numa tabela única e referenciá-la nos outros dois lugares, em vez de reescrevê-lo por extenso em cada seção.</div>
+  </div>
+
+  <details>
+    <summary>Mais 6 achados de redação e argumentação</summary>
+    <div class="dbody"><ul>
+      <li>A contribuição “threefold” enumera só “(a)” e “(b)”; a terceira aparece solta numa frase posterior.</li>
+      <li>“To the best of the authors' knowledge… the first documented” não se sustenta sobre uma revisão narrativa de 20 fontes — e o hedge está preso à contagem, não à alegação de ineditismo.</li>
+      <li>Dez verbos entre abstract, discussão e highlights excedem a força da evidência (“demonstrating that”, “confirm”, “delivers”, “is consistent with the practical effectiveness of”).</li>
+      <li>A Seção 2 empilha citações concordantes e nunca põe duas fontes em tensão — não há revisão crítica, só catálogo.</li>
+      <li>A Discussão 5.4 alega estar “na mesma ordem de grandeza” de casos comparáveis sem apresentar um único número de comparação.</li>
+      <li>Todas as métricas melhoram e nenhum achado nulo ou surpreendente é reportado — padrão que editores tratam com desconfiança. Os escores de <i>Mastery</i> de 5,2 e 4,0 são material honesto disponível e estão sendo desperdiçados.</li>
+    </ul></div>
+  </details>
+</section>
+
+<!-- ============================================ -->
+<section id="good">
+  <h2 class="sec">7. O que está bom — e por que vale o resgate</h2>
+  <p class="sec-note">O esqueleto é sólido; o problema é a base documental</p>
+  <ul>
+    <li><strong>A tese é genuinamente publicável.</strong> Ligar eficácia de treinamento a custo da qualidade e a indicadores ESG em MRO aeronáutico é exatamente o cruzamento que o JATM procura, e a moldura de política é bem posicionada.</li>
+    <li><strong>A Seção 3.3 antecipa cinco ameaças à validade interna</strong> sem que nenhum revisor tenha pedido, incluindo Hawthorne. Poucos estudos de caso fazem isso.</li>
+    <li><strong>A Tabela 2 (limitações) é exemplar</strong> — limitação, mitigação adotada e direção futura, incluindo a linha sobre acesso privilegiado do autor. É o formato que o revisor pediu, bem executado.</li>
+    <li><strong>A declaração de conflito de interesse do manuscrito</strong> é completa e honesta (falta apenas alinhar a cover letter a ela).</li>
+    <li><strong>A engenharia LaTeX está limpa:</strong> compila em quatro passadas sem <code>??</code>, sem ligaduras quebradas e sem corrupção de glifos matemáticos — a solução de fontes documentada no <code>CLAUDE.md</code> está funcionando.</li>
+    <li><strong>A prosa é boa.</strong> Frases-tópico no lugar, poucos vícios de escrita automática, transições que carregam sentido. O texto não precisa ser reescrito; precisa de números que o sustentem.</li>
+    <li><strong>Sete dos dez comentários do revisor foram atendidos de fato</strong> — seções nova de implicações gerenciais e de política, tabela comparativa, decomposição CoQ, tabela de limitações, figura conceitual e definição operacional de “training failure”.</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<section id="score">
+  <h2 class="sec">8. Checklist I-R-B-MB-E</h2>
+  <p class="sec-note">Escala: I insuficiente · R regular · B bom · MB muito bom · E excelente</p>
+  <div class="scroll">
+  <table class="score">
+    <thead><tr><th>Critério</th><th>Nota</th><th>Justificativa</th></tr></thead>
+    <tbody>
+      <tr><td>Título</td><td class="g g-B">B</td><td>Indexável, palavras-chave à frente, sem ambiguidade — mas promete sustentabilidade quantificada que não é entregue</td></tr>
+      <tr><td>Resumo</td><td class="g g-R">R</td><td>Estrutura B-P-M-R-C presente e desfechos econômicos à frente conforme pedido; 256 palavras, remete a “Section 4”, e contém afirmação causal não medida</td></tr>
+      <tr><td>Introdução e revisão</td><td class="g g-I">I</td><td>Bem construída retoricamente, mas os quatro números de abertura e a lacuna de pesquisa citam trabalhos inexistentes</td></tr>
+      <tr><td>Metodologia</td><td class="g g-R">R</td><td>Ameaças à validade tratadas com honestidade incomum; sem quadro amostral, sem denominadores, família de teste incorreta</td></tr>
+      <tr><td>Resultados e discussão</td><td class="g g-I">I</td><td>A figura do Nível 2 contradiz o texto; os IC não são obteníveis com as contagens plausíveis; a discussão interpreta um ganho que é ruído</td></tr>
+      <tr><td>Conclusões</td><td class="g g-R">R</td><td>Responde às três RQ de forma direta e disciplinada quanto a causalidade; herda os números que precisam ser refeitos</td></tr>
+      <tr><td>Bibliografia</td><td class="g g-I">I</td><td>2 de 20 entradas íntegras</td></tr>
+      <tr><td>Relevância</td><td class="g g-MB">MB</td><td>Tema, recorte e enquadramento de política são de interesse claro para o JATM</td></tr>
+      <tr><td>Template e formatação</td><td class="g g-B">B</td><td>CAS cas-dc corretamente aplicado, build limpo; restam placeholders de ética e limites de abstract/keywords</td></tr>
+      <tr><td>Redação e organização</td><td class="g g-MB">MB</td><td>Fluxo lógico consistente e prosa madura; Resultados 4.1–4.3 estão na seção errada</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<section id="plan">
+  <h2 class="sec">9. Ordem de trabalho recomendada</h2>
+  <p class="sec-note">A sequência importa: os passos 1 e 2 determinam quanto do resto sobrevive</p>
+  <ol class="plan">
+    <li><div>
+      <h4>Reconstruir a bibliografia a partir de fontes primárias</h4>
+      <p>Buscar em Scopus/Web of Science, exportar BibTeX direto do registro do editor ou do Crossref — nunca digitar campos à mão. Para cada afirmação hoje ancorada numa das 15 entradas inexistentes, encontrar uma fonte real ou remover a afirmação. Depois, validar com um script que consulte <code>api.crossref.org/works/&lt;doi&gt;</code> por entrada e falhe o build em qualquer divergência de título, periódico ou volume.</p>
+    </div></li>
+    <li><div>
+      <h4>Reconciliar figuras e texto com os registros originais</h4>
+      <p>Recuperar as notas reais dos 21 participantes, os escores das 10 sessões e as respostas de satisfação. Definir se a metodologia pode manter “no values were synthesised or imputed” — e, se não puder, reescrevê-la para descrever com precisão o que foi agregado e reconstruído.</p>
+    </div></li>
+    <li><div>
+      <h4>Publicar contagens brutas e refazer a inferência</h4>
+      <p>Ciclos de auditoria e achados por ano; tarefas de manutenção; saídas de treinamento; eventos de observação. Com os denominadores na mesa, recalcular tudo com razão de taxas de Poisson e IC exatos, aceitando os intervalos que cruzarem o nulo — para o Nível 2, o honesto é dizer que n=21 não distingue o efeito do ruído.</p>
+    </div></li>
+    <li><div>
+      <h4>Reescrever a economia com atribuição explícita</h4>
+      <p>Introduzir a fração α na Eq. (3) e reportar α=1 ao lado de α=0,5. Separar custo único de custo recorrente e recalcular o payback só sobre o primeiro. Reportar o ROI com as ressalvas já redigidas e acrescentar VPL a três anos com taxa declarada.</p>
+    </div></li>
+    <li><div>
+      <h4>Decidir o escopo de sustentabilidade</h4>
+      <p>Medir o mínimo (kg de sucata, horas de retrabalho, kgCO₂e de frete expresso já são deriváveis do ERP) ou realinhar título, abstract e contribuição ao que o artigo entrega. Manter a promessa atual sem medição é o caminho mais curto para o desalinhamento ser apontado.</p>
+    </div></li>
+    <li><div>
+      <h4>Corrigir o pacote de submissão por último</h4>
+      <p>Preencher os placeholders de ética e <code>[DATE]</code>; alinhar a cover letter à declaração de conflito do manuscrito; consertar o preâmbulo da carta de resposta e reescrevê-la contra o manuscrito final; unificar os highlights; cortar o abstract para 250 palavras e as keywords para 6; mover 4.1–4.2 para a revisão e 4.3 para a metodologia.</p>
+    </div></li>
+  </ol>
+</section>
+
+<footer>
+  Parecer produzido por auditoria em seis eixos independentes (referências, estatística, metodologia, consistência numérica, conformidade editorial, redação), com verificação adversarial de cada achado de severidade bloqueadora ou maior — 79 verificações, 3 achados refutados e descartados.<br>
+  Verificação de referências: consultas diretas à API do Crossref por DOI, mais duas buscas independentes por título por entrada.
+</footer>
+
+</div>
+
+</body>
+</html>
