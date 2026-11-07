@@ -1,0 +1,67 @@
+% 02-metodos.tex | 2 Methods
+% RESTAURADO DO ORIGINAL em 06/11/2026: secao 3 (Methodology), 3.1 (Research Design and Phases),
+% 3.2 (Data Collection) e 3.3 (Data Analysis) do Paper Training - 15 Nov 2025.
+% Da versao JATM ficaram so os acrescimos que nao conflitam com o original: definicao operacional de
+% "training failure", definicao das taxas, modelo de custo da qualidade (equacoes) e ameacas a validade.
+% NAO entraram, por nao constarem do original e contradize-lo (Nivel 3 no original = questionarios
+% pareados, nao observacao estruturada): protocolo de observacao com 12 itens, kappa de Cohen = 0,78,
+% alfa de Cronbach = 0,82, testes z de duas proporcoes. Lista em PENDENCIAS.md (so voltam se o Cristiano
+% confirmar que foram feitos e mandar os dados).
+
+\section{Methods}
+\label{sec:methods}
+
+The study employed a sequential mixed-methods case study design to implement and evaluate Kirkpatrick's four-level framework within the Technical Training Area of a multinational aeronautical engine maintenance company. A case design fits because the research questions ask \textit{what} and \textit{how}, and the unit of analysis, the training process, is contemporary and embedded in its operational context. Because the authors took part in designing and implementing the framework, the study is an interventionist case study. \todo{confirmar o papel dos autores na implantação (a Introdução diz que os autores desenvolveram e implantaram o modelo)} The study was prompted by real-world incidents, such as the rejection of a jet engine module after an improper torque application (a direct training gap). Incidents of this kind cause high rework costs and show the need for a training evaluation system that goes beyond simple compliance.
+
+\subsection{Research design and phases}
+\label{subsec:design}
+
+The macro-process unfolded in three sequential phases. Phase~1, theoretical framework analysis, reviewed the scientific literature with keywords such as ``Kirkpatrick model'', ``technical training'' and ``aeronautical maintenance''. It also analyzed industry standards (\AS{} and civil aviation regulations) and the company's internal training management process. In Phase~2, empirical application and data collection, Kirkpatrick's four levels were operationalized within the company's training workflow, with tailored instruments for data collection at each level. In Phase~3, process revision and continuous improvement, the data from Phase~2 were analyzed to identify improvement actions, culminating in a revised standard operating procedure (SOP) that institutionalized the new evaluation process.
+
+\subsection{Data collection}
+\label{subsec:data}
+
+A multi-source, multi-method strategy supported evaluation and triangulation, with quantitative and qualitative data aligned to each level:
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Level~1 (reaction)}, which assesses initial participant satisfaction and perceived value: a customized post-training questionnaire, administered digitally immediately after each session, with a sample of 10 training sessions used to gauge initial reception and identify immediate improvements in content and delivery.
+  \item \textbf{Level~2 (learning)}, which measures the acquisition of knowledge and skills: final test scores and grades of a sample of 21 trainees, extracted from the learning management system (\LMS{}) database and aggregated quarterly (March, June, September and December) to identify trends in knowledge retention and topics with weak comprehension.
+  \item \textbf{Level~3 (behavior)}, which evaluates the application of learned skills on the job: dual questionnaires administered to trainees and to their direct leaders 3 to 12 months after training, allowing time for behavioral changes to appear. The method generated 15 paired leader--trainee interviews on the transfer of training to the workplace and its sustained effect on performance.
+  \item \textbf{Level~4 (results)}, which assesses organizational impact: data from the quality management system, including quarterly customer satisfaction scores and operational metrics such as error rates and audit findings, linking the training to quality, compliance and customer trust.
+\end{enumerate}
+
+\todo{os Resultados citam um grupo focal com gerentes (92\%, 2025) e uma entrevista com gerente (seção 1.6), que esta seção não descreve: incluir um item (e) com participantes (número e funções), roteiro, quem conduziu, registro e como se chegou aos 92\%}
+
+A \textit{training failure} is an instance in which a maintenance technician, after completing a scheduled training intervention, commits a documented procedural error within the subsequent 90 days that is directly attributable to a knowledge or skill gap identified in the post-training evaluation. Errors caused by tool malfunction, supplier non-conformance or documented changes in the standard procedure are excluded. Attribution comes from root-cause analysis records reviewed by a quality engineer who is not the technician's supervisor. The training-failure rate is the number of training failures per 1,000 maintenance tasks, and the regulatory non-conformance rate is the number of findings issued by the civil aviation authority per audit cycle. \todo{F2: contagens de base e do ano da intervenção (falhas, tarefas, ciclos de auditoria, constatações), para sustentar os 28\% e os 35\%}
+
+\subsection{Data analysis}
+\label{subsec:analysis}
+
+The analysis followed a sequential mixed-methods approach. In the quantitative analysis (Phase~2), descriptive statistics (averages and trends) were calculated for the data from Levels 1, 2 and 4, such as reaction scores and customer satisfaction, to identify areas for improvement. In the qualitative analysis (Phase~2), the open-ended sections of the questionnaires and the leader--trainee interviews were analyzed thematically, coding responses to identify recurring patterns of behavioral change and barriers to application. In the process improvement analysis (Phase~3), the findings were synthesized with the 5W2H tool (what, why, who, where, when, how, how much). The tool was used to build process flowcharts, record the root causes of inefficiencies and define improvement plans for the technical training curriculum and its delivery. Triangulation cross-checked findings across sources, for example by linking low learning scores to behavioral gaps mentioned by leaders and trainees. \todo{dados dos autores: (i) datas do ano-base e dos 12 meses da intervenção; (ii) como as falhas do ano-base foram classificadas e se a classificação foi às cegas; (iii) de onde saíram as amostras (10 sessões de quantas, 21 treinandos de quantos, 15 duplas de quantas convidadas, 4 clientes de quantos) e se houve mais de uma rodada trimestral; (iv) quem codificou a análise temática e com que abordagem}
+
+\subsection{Cost-of-quality model}
+\label{subsec:coq-model}
+
+The cost-of-quality (\CoQ{}) framework divides quality costs into internal failure, external failure, appraisal and prevention. Annual internal-failure savings, dominated by rework labor and scrapped components, are
+\begin{equation}
+  \Delta C_{\text{IF}} = L_h \cdot R + S_c \cdot \bar{P}_c ,
+  \label{eq:internal}
+\end{equation}
+where $L_h$ is the reduction in rework labor hours, $R$ the loaded hourly rate, $S_c$ the reduction in scrapped components and $\bar{P}_c$ their mean material cost. External-failure savings are
+\begin{equation}
+  \Delta C_{\text{EF}} = W + S_h + R_p ,
+  \label{eq:external}
+\end{equation}
+where $W$ is the reduction in warranty-claim value, $S_h$ in expedited-shipping charges and $R_p$ in customer concessions. With $C_{\text{P\&A}}$ the added prevention and appraisal cost, the annual net saving and the one-year return on investment are
+\begin{equation}
+  \Delta C_{\text{net}} = \Delta C_{\text{IF}} + \Delta C_{\text{EF}} - C_{\text{P\&A}} ,
+  \qquad
+  \ROI = \frac{\Delta C_{\text{net}}}{C_{\text{P\&A}}} \times 100\% .
+  \label{eq:net}
+\end{equation}
+\todo{F2: os valores de cada parâmetro (horas de retrabalho, taxa horária, peças sucateadas, garantias, frete, concessões, custo de prevenção) não constam do original; a versão JATM usou valores sem fonte (Tabela de cenários guardada em tabelas/, fora do texto). Só entram com os dados da instalação}
+
+\subsection{Threats to validity}
+\label{subsec:validity}
+
+The design is a single-site before-and-after comparison without a control group, so several threats apply. \textit{History}: contemporaneous changes in workforce, contract portfolio or supplier mix could co-vary with the intervention. \textit{Maturation}: gradual organizational learning could explain part of the improvement. \textit{Instrumentation}: changes in how metrics are recorded can create apparent improvement, so definitions were kept constant from the baseline year. \textit{Selection and the counterfactual}: without random assignment or a comparison group, the design cannot establish what would have happened without the intervention; regression to the mean, testing effects and staff turnover are further threats. \textit{Researcher involvement}: the team that implemented the framework also evaluated it, which may bias data collection and interpretation. \textit{Self-report}: Level~3 relies on questionnaires answered by trainees and their leaders, which may overstate change. \textit{Co-intervention}: \ERP{} access is granted only to employees who complete training, an access control whose effect cannot be separated from that of training. The findings are therefore read as \emph{associated with} the intervention rather than \emph{produced by} it.

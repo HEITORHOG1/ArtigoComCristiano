@@ -8,13 +8,17 @@ A hybrid project with two equally important parts:
 
 1. **`.claude/skills/`** — 16 `SKILL.md` files that future Claude Code instances invoke via `/skill-name` to assist with writing, reviewing, editing, and submitting scientific papers. The skills are the reusable deliverable.
 
-2. **`artigo/`** — An **active manuscript** in LaTeX (Elsevier CAS template `cas-dc`): *"A Kirkpatrick-based Framework for Integrating Safety and Sustainability in Aviation Maintenance"*, by Dr. José Cristiano Pereira (UCP + GE Aviation, corresponding) and Heitor Oliveira Gonçalves (UCP), targeting the *Journal of Air Transport Management*. The original Word/PDF source lives in `ArtigoExemplo/`; the Elsevier template in `els-cas-templates/`; planning notes in `planejamento/`.
+2. **`artigo/`** — An **active manuscript** in LaTeX (Elsevier CAS template `cas-dc`): *"A Kirkpatrick-based Framework for Integrating Safety and Sustainability in Aviation Maintenance"*, by Dr. José Cristiano Pereira (UCP + GE Aviation, corresponding) and Heitor Oliveira Gonçalves (UCP), originally prepared for the *Journal of Air Transport Management*. The original Word/PDF source lives in `ArtigoExemplo/`; the Elsevier template in `els-cas-templates/`; planning notes in `planejamento/`.
+
+   **Since 06/11/2026 the target journal is *Production* (ABEPRO, SciELO, ScholarOne `prod-scielo`).** The JATM version in `artigo/` is frozen (git tag `jatm-r1-2026-05`); all work happens in **`artigo-production/`**, whose text is the **original paper** (`ArtigoExemplo/Paper Training - 15 Nov 2025.pdf`) restored in full on the author's request ("do not remove what was written"), not the JATM rewrite (several JATM numbers and charts are not in the original and were set aside in `_NAO-USAR` folders) (article class, A4, Times 12, 1.5 spacing, APA 7 via `biblatex-apa` + `biber`, JPEG figures, double-blind). Start with `artigo-production/LEIA-ME.md`, `PENDENCIAS.md` and `REGRAS-DO-VEICULO.md`, and the plan `planejamento/003_migracao_production_scielo.md`. The pre-submission review `planejamento/002_parecer_pre_submissao.html` still blocks submission (references without Crossref record, figure/text contradictions, statistics, ethics); these are marked in red in the PDF via `\todo{}` and `\refpendente{}`.
 
 Edits are to Markdown (skills) and LaTeX/BibTeX (manuscript).
 
 ## Manuscript build commands
 
-Compile from `g:\ArtigoComCristiano\artigo\` using MiKTeX:
+For the *Production* version (`artigo-production/`), see its `LEIA-ME.md`: `pdflatex main && biber main && pdflatex main && pdflatex main`, figures via `python scripts/gerar_figuras.py`, submission package via `python scripts/pacote_scholarone.py`. The font notes below apply only to the JATM `cas-dc` version.
+
+JATM version (frozen). Compile from `g:\ArtigoComCristiano\artigo\` using MiKTeX:
 
 ```bash
 pdflatex -interaction=nonstopmode main.tex
@@ -155,7 +159,7 @@ Skills must never assume a domain. The agent learns the topic only at runtime vi
 - Frontmatter requires `name` (must match the directory) and `description` (must include when to use AND the prerequisite-enforcement clause).
 - Skill bodies are in Brazilian Portuguese; output language for paper content follows the user's project.
 - Cross-skill references use plain skill names in backticks (e.g., `` `pesquisador-senior` ``), not file paths.
-- Do **not** create `.md` files at the repository root. The root contains only `CLAUDE.md` and the four content directories (`.claude/`, `artigo/`, `ArtigoExemplo/`, `els-cas-templates/`, `planejamento/`).
+- Do **not** create `.md` files at the repository root. The root contains only `CLAUDE.md` and the content directories (`.claude/`, `artigo/`, `artigo-production/`, `ArtigoExemplo/`, `els-cas-templates/`, `planejamento/`).
 
 ## Memory
 

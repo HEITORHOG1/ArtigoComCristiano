@@ -1,0 +1,24 @@
+RASCUNHO de 06/11/2026. Colar no ScholarOne, passo "Details & Comments", campo Cover Letter.
+Antes de colar: (1) resolver os trechos entre [colchetes]; (2) conferir os numeros contra o
+manuscrito final (fase F2 do plano 003); (3) apagar estas quatro linhas.
+----------------------------------------------------------------------------------------------
+
+Dear Editors of Production,
+
+Please consider the enclosed manuscript, "Kirkpatrick-Based Framework Integrating Safety and Sustainability in Aviation Maintenance: Waste Reduction and Resource Efficiency", as an original article [for the Thematic Section "Regenerative and Intelligent Pathways toward the Twin Transition in Industrial Engineering and Operations Management" / for regular publication].
+
+Scope and relevance. In aviation maintenance, safety and sustainability are intrinsically linked: maintenance errors drive accidents and also waste material and energy through rework, scrap and corrective actions. Training is one of the main levers that maintenance, repair and overhaul (MRO) organizations have over these errors, yet it is usually evaluated by attendance and satisfaction forms. The manuscript addresses a question at the center of quality management and human-centric operations: how training evaluation at all four Kirkpatrick levels can be embedded in an AS9100-certified operation and linked to safety, regulatory compliance and cost of quality.
+
+Aims and method. In a twelve-month sequential mixed-methods case study, the Kirkpatrick model was operationalized in the training process of a multinational aircraft engine maintenance facility, in three phases (theoretical framework, empirical application, process revision). Data combined post-training questionnaires, learning-management test scores, paired leader-trainee questionnaires, customer satisfaction surveys and quality metrics.
+
+Main results. The implementation was associated with 28% fewer training failures and 35% fewer regulatory non-conformances, and with lower quality costs; the learning assessment (mean 66.9 out of 100) exposed content gaps that were corrected. [Conferir contra o manuscrito final.] The single-site design supports association, not causal attribution, and the manuscript discusses the threats to validity explicitly.
+
+Contribution. Theoretically, the paper connects training-evaluation research with quality-cost and sustainability accounting in a regulated operation. Methodologically, it shows how the four levels can be measured with records that most MRO facilities already keep. Practically, it gives managers a roll-out sequence and an audit trail for AS9100 competence requirements, and gives regulators propositions to test in multi-site pilots.
+
+Disclosure. One of the authors is employed by the company that operates the host facility; the data were obtained under a data-sharing agreement, the company reviewed the manuscript for confidentiality only, and this relationship is declared in the manuscript and in the signed Declaration of Conflict of Interest. [Etica: frase conforme D4 do plano 003.] The research did not receive external funding or support.
+
+The manuscript is original, has not been published, is not under consideration elsewhere [so depois da retirada formal no JATM, D1] and has not been posted as a preprint. All authors approved the submission.
+
+Sincerely,
+
+José Cristiano Pereira, on behalf of the authors

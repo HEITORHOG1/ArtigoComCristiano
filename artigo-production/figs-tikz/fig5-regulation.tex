@@ -1,0 +1,69 @@
+% =============================================================================
+% Figure 5 do original (Fig. 3 da versao Production) -- Regulation requirements
+% Redesenho fiel a Fig. 5 do Paper Training - 15 Nov 2025 (06/11/2026):
+% rotulos completos do original, "(Repair Stations)" na terceira faixa, sem as
+% linhas cinza que cruzavam o texto; grafia americana (Organization).
+% Cores como no original: faixas e pilares em azul, componentes do SMS em verde.
+% =============================================================================
+\begin{tikzpicture}[
+  every node/.style={font=\small, align=center},
+  head/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=12cm, minimum height=0.8cm
+  },
+  pillar/.style={
+    rectangle, rounded corners=3pt,
+    draw=kpBlue, fill=kpBlueL, thick,
+    minimum width=2.6cm, minimum height=0.95cm
+  },
+  item/.style={
+    rectangle, rounded corners=2pt,
+    draw=kpGreen, fill=kpGreenL, thick,
+    text width=2.4cm, minimum height=1.2cm,
+    font=\footnotesize,
+    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}
+  },
+  arrow/.style={-{Stealth[length=2mm]}, thick}
+]
+ % Cascata regulatoria
+ \node[head] (icao) at (0,7.2)
+  {International Civil Aviation Organization (ICAO) Regulation};
+ \node[head] (caa) at (0,6.15)
+  {Civil Aviation Authorities (FAA, EASA, ANAC, others) Regulation};
+ \node[head, minimum height=1.0cm] (sms) at (0,4.95)
+  {Airlines, Airports, Maintenance Facilities (Repair Stations)\\Safety Management System Manual};
+
+ \draw[arrow] (icao) -- (caa);
+ \draw[arrow] (caa) -- (sms);
+
+ % Quatro pilares do SMS
+ \node[pillar] (p1) at (-4.5,3.55) {Safety Policy\\and Procedures};
+ \node[pillar] (p2) at (-1.5,3.55) {Safety Risk\\Management};
+ \node[pillar] (p3) at ( 1.5,3.55) {Safety\\Assurance};
+ \node[pillar] (p4) at ( 4.5,3.55) {Safety\\Promotion};
+
+ \foreach \p in {p1,p2,p3,p4} {
+  \draw[arrow] (sms.south -| \p.north) -- (\p.north);
+ }
+
+ % Componentes de cada pilar (rotulos do original)
+ \foreach \i/\lab in {0/Safety Policy, 1/Safety Manual,
+             2/Safety Procedures, 3/Safety Instructions} {
+  \node[item] at (-4.5, 2.2 - \i*1.4) {\lab};
+ }
+ \foreach \i/\lab in {0/Hazard Identification, 1/Risk Assessment,
+             2/Risk Owner Assignments, 3/Risk Control} {
+  \node[item] at (-1.5, 2.2 - \i*1.4) {\lab};
+ }
+ \foreach \i/\lab in {0/Safety Performance Monitoring, 1/Safety System Audit,
+             2/Management of Change, 3/Continuous Improvement on Safety} {
+  \node[item] at (1.5, 2.2 - \i*1.4) {\lab};
+ }
+ \foreach \i/\lab in {0/Training on SMS for Safety Specialists,
+             1/Training on SMS for Leadership,
+             2/Training on SMS for All Staff,
+             3/Safety Communication Plan} {
+  \node[item] at (4.5, 2.2 - \i*1.4) {\lab};
+ }
+\end{tikzpicture}

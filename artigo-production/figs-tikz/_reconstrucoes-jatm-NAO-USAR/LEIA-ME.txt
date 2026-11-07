@@ -1,0 +1,5 @@
+Graficos de dados redesenhados na versao JATM (maio/2026) com valores RECONSTRUIDOS, que nao batem
+com os graficos originais do artigo (Paper Training - 15 Nov 2025.pdf). Exemplos: a Fig. 9 original tem
+media 66,90 e pelo menos sete notas abaixo de 70; a reconstrucao, outra serie. A Fig. 10 original nao tem
+dado antes da intervencao; a reconstrucao inventou barras de pre-intervencao. Guardados so como registro.
+NAO USAR. Os graficos do manuscrito sao os originais, em ../../figuras-originais/.

@@ -1,0 +1,23 @@
+% Tabela 2 | Cenarios de custo da qualidade (origem: artigo/tabelas/table3-coq-scenarios.tex).
+% Pendente F2: fracao de atribuicao alfa, custo unico x recorrente, payback so sobre o custo
+% unico, ROI calculado, VPL de tres anos, sensibilidade por parametro.
+\begin{table}[H]
+  \centering
+  \caption{Cost-of-quality scenarios for the Kirkpatrick-based intervention}
+  \label{tab:coq-scenarios}
+  \small
+  \begin{tabular}{@{}p{7.2cm}rrr@{}}
+    \toprule
+    \textbf{Component (USD per year)} & \textbf{Pessimistic} & \textbf{Base} & \textbf{Optimistic} \\
+    \midrule
+    Internal-failure savings ($\Delta C_{\text{IF}}$)   & 621,000      & 828,000        & 1,035,000 \\
+    External-failure savings ($\Delta C_{\text{EF}}$)   & 352,000      & 470,000        & 588,000 \\
+    Prevention and appraisal cost ($C_{\text{P\&A}}$)   & $-$220,000   & $-$110,000     & $-$80,000 \\
+    \midrule
+    \textbf{Net annual saving} ($\Delta C_{\text{net}}$) & \textbf{753,000} & \textbf{1,188,000} & \textbf{1,543,000} \\
+    \midrule
+    Implied simple payback (months)                     & 3.5          & 1.1            & 0.6 \\
+    \bottomrule
+  \end{tabular}
+  \notafonte{$\Delta C_{\text{IF}}$, $\Delta C_{\text{EF}}$, $C_{\text{P\&A}}$ and $\Delta C_{\text{net}}$ as defined in Eqs.~(\ref{eq:internal}) to (\ref{eq:net}). Internal-failure savings use $L_h \approx 4{,}800$~h, $R \approx$ USD~85/h, $S_c \approx 12$ components and $\bar{P}_c \approx$ USD~35,000. The pessimistic and optimistic columns apply $\pm 25\%$ to the base reductions; the pessimistic column also doubles $C_{\text{P\&A}}$. Source: the authors, from facility cost data. \todo{F2: payback com custo recorrente como investimento conta duas vezes; refazer}}
+\end{table}

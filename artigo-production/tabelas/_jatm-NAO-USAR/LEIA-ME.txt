@@ -1,0 +1,5 @@
+Tabelas da versao JATM (maio/2026) cujos numeros NAO constam do artigo original (Paper Training -
+15 Nov 2025.pdf) e nao tem fonte registrada: taxa de aprovacao 78% -> 86%, consulta ao cartao de trabalho
+71% -> 94%, prazo de entrega -6%, custo da qualidade 4,2 -> 3,0 mi, satisfacao 4,7 (antes/depois); e os
+parametros do modelo de custo (4.800 h, USD 85/h, 12 pecas, USD 35.000, USD 380.000 etc.).
+Guardadas so como registro. So voltam ao manuscrito com os dados da instalacao (Cristiano).

@@ -1,0 +1,24 @@
+% Tabela 1 | Antes e depois (origem: artigo/tabelas/table1-before-after.tex).
+% Production: tabela no corpo, [H], 10 pt, abreviaturas e fonte abaixo; sem nota de rodape
+% (a nota "a" virou frase da nota). Pendente F2: valores a refazer com os registros; o parecer
+% pede tambem uma linha de residuo material (kg ou USD), pedida pelo revisor do JATM.
+\begin{table}[H]
+  \centering
+  \caption{Operational outcomes before and after the Kirkpatrick-based intervention}
+  \label{tab:before-after}
+  \small
+  \begin{tabular}{@{}p{7.2cm}rrr@{}}
+    \toprule
+    \textbf{Metric} & \textbf{Before} & \textbf{After} & \textbf{Variation} \\
+    \midrule
+    Training failures (index, baseline $=100$)          & 100           & 72            & $-28\%$ \\
+    Regulatory non-conformances (index, baseline $=100$) & 100           & 65            & $-35\%$ \\
+    First-attempt pass rate (Level~2, \%)               & 78            & 86            & $+8$ pp \\
+    Work-card consultation (Level~3, \%)                & 71            & 94            & $+23$ pp \\
+    Quality costs (USD million per year)                & $\approx 4.2$ & $\approx 3.0$ & $\approx -1.2$ \\
+    Turnaround time (index, baseline $=100$)            & 100           & 94            & $-6\%$ \\
+    Customer satisfaction (0--5 scale, mean)            & n.a.          & 4.7           & n.a. \\
+    \bottomrule
+  \end{tabular}
+  \notafonte{pp: percentage points; n.a.: not available. Training failures and regulatory non-conformances are indexed to 100 in the baseline year for confidentiality; the training-failure rate is expressed per 1,000 maintenance tasks and the non-conformance rate per audit cycle. Quality costs are the facility's estimate of total cost of quality within the scope affected by training. The baseline year did not use the structured customer-survey instrument, so no comparable pre-intervention mean exists. Source: facility quality records, anonymised and aggregated by the facility's quality department. \todo{F2: valores a refazer com os registros; linha de resíduo material}}
+\end{table}

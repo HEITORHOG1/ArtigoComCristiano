@@ -1,0 +1,107 @@
+% =====================================================================
+% Artigo Kirkpatrick, versao de REVISTA: Production (ABEPRO, SciELO).
+% Submissao: ScholarOne mc04.manuscriptcentral.com/prod-scielo.
+% Plano: ../planejamento/003_migracao_production_scielo.md. Regras: REGRAS-DO-VEICULO.md.
+% Pendencias de conteudo: PENDENCIAS.md (o PDF mostra em vermelho o que falta).
+%
+% Formato da revista (prod.org.br/instructions, lido em 06/11/2026): A4, margens 2,5 cm,
+% Times New Roman 12 (10 em tabelas e figuras), espaco 1,5, recuo zero, sem espaco entre
+% paragrafos, justificado, uma coluna, APA, figuras JPEG >= 300 dpi, sem notas de rodape,
+% secoes numeradas a partir da Introducao, 4.000 a 8.000 palavras incluindo referencias,
+% sem dados de autor (duplo-cego).
+%
+% Compilar:
+%   python scripts/gerar_figuras.py        (so quando mudar alguma figura TikZ)
+%   pdflatex main && biber main && pdflatex main && pdflatex main
+%   python scripts/pacote_scholarone.py    (gera o pacote de envio)
+% A versao JATM esta congelada em ../artigo/ (tag git jatm-r1-2026-05).
+% =====================================================================
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman (Type 1), como no template da revista
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{setspace}
+\onehalfspacing                   % espaco 1,5 em todo o texto, tabelas incluidas
+\setlength{\parindent}{0pt}       % recuo zero
+\setlength{\parskip}{0pt}         % espaco entre paragrafos zero
+\setlength{\emergencystretch}{2em} % evita linha estourada em referencias com titulo longo
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\usepackage{graphicx}
+\usepackage{float}                % [H]: figura e tabela logo depois do paragrafo que as cita
+\usepackage[labelfont=bf,font=footnotesize,labelsep=period]{caption}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl} % quebra URLs longas da lista de referencias (APA imprime o URL)
+\Urlmuskip=0mu    % sem espaco elastico entre os caracteres da URL ("https : / / www" na justificacao)
+\graphicspath{{figuras/}}
+
+% APA 7 por biblatex-apa (biber). \parencite -> (Autor, ano); \textcite -> Autor (ano).
+\usepackage[style=apa,backend=biber,sortcites=true,maxcitenames=2,uniquelist=false]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{refs.bib}
+
+% Pendencias visiveis no PDF. Antes de submeter, nenhuma pode sobrar:
+%   grep -rn "todo{\|citepend{" secoes/ tabelas/ main.tex   deve voltar vazio, e nenhuma referencia
+%   com keywords = {naolocalizada} pode estar citada (o pacote de envio confere e recusa).
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+% Referencias do original NAO LOCALIZADAS no Crossref nem no OpenAlex (06/11/2026): marcadas com
+% keywords = {naolocalizada} no refs.bib. Saem em vermelho na citacao e na lista de referencias
+% (com o aviso do campo addendum). Nada foi retirado do texto do original.
+\AtEveryCitekey{\ifkeyword{naolocalizada}{\color{red}}{\normalcolor}}
+\AtEveryBibitem{\ifkeyword{naolocalizada}{\color{red}}{\normalcolor}}
+% Citacoes do texto original sem entrada na lista de referencias do original (sem dados para criar a
+% entrada): IATA 2021, ANAC 2018, Jung et al. 2019, Buriak e Ayars 2019.
+\newcommand{\citepend}[1]{\textcolor{red}{(#1) [no entry in the original reference list]}}
+
+% Nota de fonte e de abreviaturas abaixo de tabelas e figuras (regras da revista).
+\newcommand{\notafonte}[1]{\par\vspace{2pt}{\footnotesize #1\par}}
+
+% Siglas usadas no texto
+\newcommand{\AS}{AS9100\xspace}
+\newcommand{\ICAO}{ICAO\xspace}
+\newcommand{\FAA}{FAA\xspace}
+\newcommand{\EASA}{EASA\xspace}
+\newcommand{\ANAC}{ANAC\xspace}
+\newcommand{\SMS}{SMS\xspace}
+\newcommand{\MRO}{MRO\xspace}
+\newcommand{\ERP}{ERP\xspace}
+\newcommand{\LMS}{LMS\xspace}
+\newcommand{\CAA}{CAA\xspace}
+\newcommand{\ROI}{ROI\xspace}
+\newcommand{\ESG}{ESG\xspace}
+\newcommand{\CoQ}{CoQ\xspace}
+
+\begin{document}
+
+% Titulo do ORIGINAL ("A Kirkpatrick-based Framework for Integrating Safety and Sustainability in
+% Aviation Maintenance: A Case Study on Waste Reduction and Resource Efficiency", 20 palavras) reduzido
+% ao limite de 15 da revista sem perder nenhum termo de conteudo: sai so "A ... for ... A Case Study on"
+% (o "case study" tambem evita a leitura como "case report", que a revista nao aceita). 14 palavras.
+% Sem dados de autor (duplo-cego).
+\begin{center}
+{\large\bfseries Kirkpatrick-Based Framework Integrating Safety and Sustainability in Aviation Maintenance: Waste Reduction and Resource Efficiency\par}
+\end{center}
+\vspace{6pt}
+
+\input{secoes/00-resumo}
+
+\input{secoes/01-introducao}
+\input{secoes/02-metodos}
+\input{secoes/03-resultados}
+\input{secoes/04-discussoes}
+\input{secoes/05-conclusoes}
+\input{secoes/06-declaracoes}
+
+\printbibliography[title={References}]
+
+\end{document}

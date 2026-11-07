@@ -1,0 +1,18 @@
+# Saidas de compilacao do LaTeX
+*.aux
+*.log
+*.out
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.toc
+*.synctex.gz
+# Previas e temporarios dos scripts
+.prev/
+.tmp-*/
+.tmpfig-*/
+main.txt
+# Pacote de teste (o de envio, submissao-scholarone/, fica versionado)
+submissao-scholarone-RASCUNHO/
+__pycache__/

@@ -1,0 +1,34 @@
+Airbus2024 || nao localizado (melhor sim=0.52: 'Interactive Part Task Trainer for operations and maintenance training' | Conference Record for 1992 Fifth Conference on Human Factors and Power Plants | 1992 | Sury, Katai)
+BoeingAIR2024 || nao localizado (melhor sim=0.44: 'A Readiness-Aware Internship Recommendation and Skill-Gap Analysis Sys' | International Journal of Innovative Research in Technology | 2026 | Eshan Metwate, Sairaj Patil, Ayush Toke)
+BoeingMRO2025 || nao localizado (melhor sim=0.65: 'Blockchain Applications – Usage in Different Domains' | IEEE Access | 2019 | Joe Abou Jaoude, Raafat George Saadé)
+Boyd2015 || DOI 10.7771/2159-6670.1123 -> 'Causes and Trends in Maintenance-Related Accidents in FAA-Certified Single Engine Piston A' | Journal of Aviation Technology and Engineering | 2015 | sim=1.00 OK || LOCALIZADO (CR, sim=1.00): 'Causes and Trends in Maintenance-Related Accidents in FAA-Certified Single Engine Piston A' | Journal of Aviation Technology and Engineering | 2015 | 10.7771/2159-6670.1123 | Boyd, Stolzer
+Chen2023 || DOI 10.1016/j.jclepro.2023.137521 -> 'The status and improvement opportunities towards carbon neutrality of a university campus ' | Journal of Cleaner Production | 2023 | sim=0.33 OUTRO ARTIGO || nao localizado (melhor sim=0.53: 'The Leadership Role in Transitioning to Circular Economy: Empirical Ev' | Cleaner Production, Circular Economy, and ESG Strategies to Foster Sustainability | 2026 | Hamerschmidt, Ferasso, Tortato)
+Dismukes2023 || nao localizado (melhor sim=0.65: 'Psycholinguistic and Cognitive Dimensions of Poetic Translation' | Forum for Linguistic Studies | 2025 | Vladyslava Demetska, Halyna Kuzenko, Nataliia Banias)
+FAAHERMIT2024 || nao localizado (melhor sim=0.67: 'High-Reliability Organization' | Encyclopedia of Governance | 2007 | )
+FernandezDelgado2024 || nao localizado (melhor sim=0.45: 'Causal Responsibility Attribution for Human-AI Collaboration' | arXiv (Cornell University) | 2024 | Yahang Qi, Bernhard Schölkopf, Zhijing Jin)
+Garcia2024 || nao localizado (melhor sim=0.68: 'Digital-Twin-Based Ecosystem for Aviation Maintenance Training' | Information | 2025 | Kabashkin)
+IATABlockchain2025 || nao localizado (melhor sim=0.53: 'Blockchain-Based Certification System: Ensuring Trust in Educational C' | Blockchain for Global Education | 2024 | Ramasamy, Khan)
+IATAMRO2025 || nao localizado (melhor sim=0.45: 'Does Democratic and Economic Benchmarking Matter for Affective Polariz' |  | 2026 | Sychowiec)
+Iwasaki2025 || DOI 10.1016/j.jclepro.2025.102450: NAO EXISTE no Crossref || nao localizado (melhor sim=0.59: 'Predictive Operations Analytics for Resource Allocation and Service-Ca' | Review of Applied Science and Technology | 2023 | Chy, Ahmed)
+KimLee2024 || nao localizado (melhor sim=0.58: 'Using Data from High-Stakes Testing in Program Planning and Evaluation' | High Stakes Testing: New Challenges and Opportunities for School Psychology | 2018 | Braden)
+Kirkpatrick2006 || LOCALIZADO (OA, sim=1.00): 'Evaluating Training Programs: The Four Levels' | The Journal of Applied Management and Entrepreneurship | 2006 |  | Donovan A. McFarlane
+Leveson2011 || LOCALIZADO (OA, sim=1.00): 'Engineering a safer world: systems thinking applied to safety' | Choice Reviews Online | 2012 | 10.5860/choice.49-6305 | Nancy G. Leveson
+Nakamura2024 || nao localizado (melhor sim=0.57: 'The Persistent Issue of Simulator Sickness in Naval Aviation Training' | Aerospace Medicine and Human Performance | 2018 | Geyer, Biggs)
+NASAHFB2023 || nao localizado (melhor sim=0.59: 'A neuroergonomic approach to human performance assessment in e-gaming' |  | None | Watson, Ayaz)
+OConnor2024 || nao localizado (melhor sim=0.38: 'Determinants of Transfer of Training: A Comprehensive Literature Revie' | International Journal for Research in Vocational Education and Training | 2016 | Cornelia Tonhäuser, Laura Büker)
+OReilly2024 || nao localizado (melhor sim=0.44: 'Regulatory gaps in nvPM and non-CO2 aviation-emission standard under S' |  | 2026 | GOSWAMI)
+Oschman2017 || nao localizado (melhor sim=0.65: 'Strategic quality management and quality costs' | Total Quality Management | 1994 | )
+Patel2023 || nao localizado (melhor sim=0.59: 'Overtraining Syndrome as a Complex Systems Phenomenon' | Frontiers in Network Physiology | 2022 | Lawrence E. Armstrong, Michael F. Bergeron, Elaine C. Lee)
+Pereira2017 || nao localizado (melhor sim=0.48: 'Development of a cost-benefit and risk-based maintenance model for pow' |  | 2020 | Rosero Zúñiga, Laura Sofía)
+Peterson2025 || nao localizado (melhor sim=0.60: 'Predictive Modeling of PROTAC Cell Permeability with Machine Learning' |  | None | )
+Phillips2021 || nao localizado (melhor sim=0.72: 'Handbook of Training Evaluation and Measurement Methods' |  | 2016 | Phillips, Phillips)
+Reason1990 || LOCALIZADO (OA, sim=1.00): 'Human Error' | Cambridge University Press eBooks | 1990 | 10.1017/cbo9781139062367 | JAMES T. REASON
+Reason2016 || LOCALIZADO (CR, sim=1.00): 'Organizational Accidents Revisited' |  | 2016 | 10.4324/9781315562841 | Reason
+SAE2025 || nao localizado (melhor sim=0.37: 'Merlin Flexible Circuits achieved AS9100 to Rev C accreditation' | Circuit World | 2012 | )
+Sousa2025 || DOI 10.1016/j.jclepro.2025.102301: NAO EXISTE no Crossref || nao localizado (melhor sim=0.50: 'Development of a systematic framework for sustainability management of' | Journal of Cleaner Production | 2018 | Nawaz, Koç)
+YangPark2024 || DOI 10.1016/j.jclepro.2024.139912: NAO EXISTE no Crossref || nao localizado (melhor sim=0.51: 'AI-ENHANCED MULTI-OBJECTIVE OPTIMIZATION FRAMEWORK FOR LEAN MANUFACTUR' |  | 2025 | Roy)
+YucelAyvaz2019 || nao localizado (melhor sim=0.50: 'Radio frequency identification: supply chain impact and implementation' | International Journal of Integrated Supply Management | 2006 | Li, Visich)
+Zhang2025 || nao localizado (melhor sim=0.62: 'Cellular Manufacturing Applications in MRO Operations' | Procedia CIRP | 2013 | Patrick McLaughlin, Isidro Durazo-Cardenas)
+Shunko2018 || LOCALIZADO (CR, sim=1.00): 'Humans Are Not Machines: The Behavioral Impact of Queueing Design on Service Time' | Management Science | 2018 | 10.1287/mnsc.2016.2610 | Shunko, Niederhoff, Rosokha
+Jung2019 || nao localizado (melhor sim=0.68: 'Optimization models for resource allocation under perturbation.' |  | None | Bridgeman)
+BuriakAyars2019 || nao localizado (melhor sim=0.72: 'Correlations in Kirkpatrick's training evaluation model' |  | 1999 | Melissa D. Bledsoe)

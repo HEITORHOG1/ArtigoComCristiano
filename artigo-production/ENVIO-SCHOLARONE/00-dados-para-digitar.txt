@@ -1,0 +1,36 @@
+DADOS PARA DIGITAR NO SCHOLARONE (Production), versao de 06/11/2026.
+Conferir contra o manuscript.pdf final antes de colar; o resumo muda na fase F2.
+
+TIPO: Original Article  (se D2 = secao tematica: escolher a opcao "Thematic Section - Twin Transition...")
+
+TITULO (14 palavras: o titulo do original reduzido ao limite de 15, sem perder termos de conteudo)
+Kirkpatrick-Based Framework Integrating Safety and Sustainability in Aviation Maintenance: Waste Reduction and Resource Efficiency
+
+RESUMO: copiar os cinco blocos do manuscript.pdf final (Paper aims; Originality; Research method;
+Main findings; Implications for theory and practice). Hoje: 210 palavras, numeros pendentes da F2.
+
+PALAVRAS-CHAVE (nenhuma repete termo do titulo)
+training evaluation; AS9100; cost of quality; human factors; cleaner production
+
+AUTORES (ordem e correspondente a confirmar, D6; nao muda depois do Submit)
+1. Jose Cristiano Pereira (correspondente) - ORCID 0000-0002-2329-0560 - josecristiano.pereira@ucp.br
+   Departamento de Engenharia e Computacao, Universidade Catolica de Petropolis (UCP), Petropolis, RJ, Brazil
+   [e GE Aviation, Brazil, como segunda afiliacao, como na versao JATM]
+2. Heitor Oliveira Goncalves - ORCID 0000-0002-5866-2213 - heitorhog@gmail.com
+   Departamento de Engenharia e Computacao, Universidade Catolica de Petropolis (UCP), Petropolis, RJ, Brazil
+
+FINANCIAMENTO (frase padrao da revista; confirmar)
+This research did not receive external funding or support.
+
+CONFLITO DE INTERESSE (no sistema, com nomes; no manuscrito fica sem nomes)
+Jose Cristiano Pereira is employed by GE Aviation, which operates the host facility of the case study.
+The data were collected under a formal data-sharing agreement with the facility's quality department;
+GE Aviation reviewed the manuscript for confidentiality compliance only and did not influence the
+analysis, conclusions or recommendations. Heitor Oliveira Goncalves declares no conflict of interest.
+
+ETICA: conforme D4 (parecer do comite com numero, ou dispensa justificada).
+
+CONTRIBUICOES (CRediT, recomendado; texto da versao JATM, conferir com os autores)
+Jose Cristiano Pereira: Conceptualization, Methodology, Investigation, Formal analysis, Writing - original draft, Supervision, Project administration.
+Heitor Oliveira Goncalves: Data curation, Visualization, Validation, Writing - review & editing.
+(A versao JATM listava tambem "Funding acquisition", incoerente com a declaracao de que nao houve financiamento.)
